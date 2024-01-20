@@ -61,7 +61,7 @@ public class Employee_List {
     }
 
     public void sortDes() {
-        employeeList.sort(Comparator.comparing(Employee::calculateSalary).reversed());;
+        employeeList.sort(Comparator.comparing(Employee::calculateSalary).reversed());
     }
 
     public void highestSalary() {
