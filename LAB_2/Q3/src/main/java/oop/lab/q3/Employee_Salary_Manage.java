@@ -13,12 +13,13 @@ import java.util.Scanner;
 public class Employee_Salary_Manage {
 
     public static void main(String[] args) {
-
+        
         Employee_List list = new Employee_List();
         list.inputList();
-        list.ouputList();
+        list.outputList();
         list.sortDes();
         list.highestSalary();
+
 
     }
 }

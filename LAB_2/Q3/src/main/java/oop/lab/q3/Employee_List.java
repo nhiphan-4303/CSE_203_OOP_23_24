@@ -54,14 +54,14 @@ public class Employee_List {
         }
     }
 
-    public void ouputList() {
+    public void outputList() {
         for (Employee e : employeeList) {
             e.output();
         }
     }
 
     public void sortDes() {
-        employeeList.sort(Comparator.comparing(Employee::calculateSalary));
+        employeeList.sort(Comparator.comparing(Employee::calculateSalary).reversed());;
     }
 
     public void highestSalary() {
