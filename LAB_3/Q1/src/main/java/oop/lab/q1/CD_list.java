@@ -5,6 +5,8 @@
 package oop.lab.q1;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -53,8 +55,12 @@ public class CD_list {
     }
 
     public void searchByCollection() {
-        System.out.println("Enter the collection (game/movie/music): ");
-        String collection = sc.nextLine();
+        String collection;
+        do {
+            System.out.println("Enter the collection (game/movie/music): ");
+            collection = sc.nextLine();
+        } while (!collection.equalsIgnoreCase("game") && !collection.equalsIgnoreCase("movie")
+                && !collection.equalsIgnoreCase("music"));
         for (int i = 0; i < cdList.size(); i++) {
             if (collection.equalsIgnoreCase(cdList.get(i).getCollection())) {
                 cdList.get(i).output();
@@ -63,8 +69,12 @@ public class CD_list {
     }
 
     public void seachByType() {
-        System.out.println("Enter the type (audio or video): ");
-        String type = sc.nextLine();
+        String type;
+        do {
+            System.out.println("Enter the type (audio or video): ");
+            type = sc.nextLine();
+        } while (!type.equalsIgnoreCase("audio")
+                && !type.equalsIgnoreCase("video"));
         for (int i = 0; i < cdList.size(); i++) {
             if (type.equalsIgnoreCase(cdList.get(i).getType())) {
                 cdList.get(i).output();
@@ -82,8 +92,49 @@ public class CD_list {
         }
     }
 
-    public void sortAsc() {
+    public void editInfoById() {
+        System.out.println("Enter the ID's CD to edit: ");
+        String id = sc.nextLine();
+        for (int i = 0; i < cdList.size(); i++) {
+            if (id.equalsIgnoreCase(cdList.get(i).getId())) {
+                String collection;
+                do {
+                    System.out.println("Enter the collection (game/movie/music): ");
+                    collection = sc.nextLine();
+                } while (!collection.equalsIgnoreCase("game") && !collection.equalsIgnoreCase("movie")
+                        && !collection.equalsIgnoreCase("music"));
+                cdList.get(i).setCollection(collection);
 
+                String type;
+                do {
+                    System.out.println("Enter the type (audio or video): ");
+                    type = sc.nextLine();
+                } while (!type.equalsIgnoreCase("audio")
+                        && !type.equalsIgnoreCase("video"));
+                cdList.get(i).setType(type);
+
+                System.out.println("Enter the title: ");
+                String title = sc.nextLine();
+                cdList.get(i).setTitle(title);
+
+                System.out.println("Enter the price: ");
+                double price = sc.nextDouble();
+                cdList.get(i).setPrice(price);
+
+                System.out.println("Enter the year: ");
+                int year = sc.nextInt();
+                cdList.get(i).setYearOfRelease(year);
+            }
+        }
+    }
+
+    public void sortAsc() {
+        Comparator<CD> com = new Comparator<CD>() {
+            public int compare(CD o1, CD o2) {
+                return o2.getYearOfRelease() - o1.getYearOfRelease();
+            }
+        };
+        cdList.sort(com);
     }
 
 }

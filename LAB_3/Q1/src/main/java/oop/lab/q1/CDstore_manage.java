@@ -49,14 +49,15 @@ public class CDstore_manage {
                     System.out.println("____________________________________");
                     break;
                 case 6:
-
+                    cd.editInfoById();
+                    System.out.println("____________________________________");
                     break;
                 case 7:
                     cd.outputList();
                     System.out.println("____________________________________");
                     break;
                 case 8:
-
+                    cd.sortAsc();
                     break;
                 case 9:
                     break;
