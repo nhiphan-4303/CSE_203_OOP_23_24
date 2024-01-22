@@ -57,7 +57,6 @@ public class Employee_List {
     public void outputList() {
         for (Employee e : employeeList) {
             e.output();
-            System.out.println("Salary: " + e.calculateSalary());
         }
     }
 
