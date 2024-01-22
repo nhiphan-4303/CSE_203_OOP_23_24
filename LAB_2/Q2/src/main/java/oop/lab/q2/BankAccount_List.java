@@ -29,14 +29,14 @@ public class BankAccount_List {
 
         for (int i = 0; i < n; i++) {
             System.out.println("Enter the Account number: ");
-            int mAccnum = sc.nextInt();
+            int mAccNum = sc.nextInt();
             sc.nextLine();
             System.out.println("Enter the name: ");
             String mName = sc.nextLine();
             System.out.println("Enter the balance: ");
             double mBalance = sc.nextDouble();
 
-            BankAccount b = new BankAccount(mAccnum, mName, mBalance);
+            BankAccount b = new BankAccount(mAccNum, mName, mBalance);
             list.add(b);
             System.out.println("___________________________");
         }
@@ -52,32 +52,44 @@ public class BankAccount_List {
     public void outputDeposit() {
         Scanner sc = new Scanner(System.in);
         System.out.println("-----Deposit-----");
-        System.out.println("Enter the order account: ");
-        int order = sc.nextInt();
+        System.out.println("Enter Number Account: ");
+        int mAccNum = sc.nextInt();
         System.out.println("Enter amount of money: ");
         double money = sc.nextDouble();
-        list.get(order - 1).deposit(money);
+        int order = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (mAccNum == list.get(i).getmAccNum()) {
+                order = i;
+            }
+        }
+        list.get(order).deposit(money);
         System.out.println("-----Finish-----");
         System.out.println("Updated: ");
-        System.out.println(list.get(order - 1).toString());
+        System.out.println(list.get(order).toString());
         System.out.println("___________________________");
     }
 
     public void outputWithDraw() {
         Scanner sc = new Scanner(System.in);
         System.out.println("-----WithDraw-----");
-        System.out.println("Enter the order account: ");
-        int order = sc.nextInt();
+        System.out.println("Enter Number Account: ");
+        int mAccNum = sc.nextInt();
         System.out.println("Enter amount of money: ");
         double money = sc.nextDouble();
-        if (list.get(order - 1).withdraw(money)) {
+        int order = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (mAccNum == list.get(i).getmAccNum()) {
+                order = i;
+            }
+        }
+        if (list.get(order).withdraw(money)) {
             System.out.println("-----Finish-----");
             System.out.println("Updated: ");
-            System.out.println(list.get(order - 1).toString());
+            System.out.println(list.get(order).toString());
         } else {
             System.out.println("-----Impossible-----");
             System.out.println("Check the account balance again: ");
-            System.out.println(list.get(order - 1).toString());
+            System.out.println(list.get(order).toString());
         }
         System.out.println("___________________________");
     }
@@ -85,22 +97,32 @@ public class BankAccount_List {
     public void outputTransfer() {
         Scanner sc = new Scanner(System.in);
         System.out.println("-----Transfer-----");
-        System.out.println("Enter the order of Transfer Account: ");
-        int order1 = sc.nextInt();
-        System.out.println("Enter the order of Received Account: ");
-        int order2 = sc.nextInt();
+        System.out.println("Enter Number Account of Transfer Account: ");
+        int mAccNum1 = sc.nextInt();
+        System.out.println("Enter Number Account of Received Account: ");
+        int mAccNum2 = sc.nextInt();
         System.out.println("Enter amount of money: ");
         double money = sc.nextDouble();
-        if (list.get(order1 - 1).transferMoney(list.get(order2 - 1), money)) {
+        int order1 = 0;
+        int order2 = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (mAccNum1 == list.get(i).getmAccNum()) {
+                order1 = i;
+            }
+            if (mAccNum2 == list.get(i).getmAccNum()) {
+                order2 = i;
+            }
+        }
+        if (list.get(order1).transferMoney(list.get(order2), money)) {
             System.out.println("-----Finish-----");
             System.out.println("Updated: ");
-            System.out.println(list.get(order1 - 1).toString());
-            System.out.println(list.get(order2 - 1).toString());
+            System.out.println(list.get(order1).toString());
+            System.out.println(list.get(order2).toString());
 
         } else {
             System.out.println("-----Impossible-----");
             System.out.println("Check the account balance again: ");
-            System.out.println(list.get(order1 - 1).toString());
+            System.out.println(list.get(order1).toString());
         }
         System.out.println("___________________________");
     }
