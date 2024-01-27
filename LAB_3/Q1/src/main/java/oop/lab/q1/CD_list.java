@@ -102,20 +102,20 @@ public class CD_list {
     }
 
     public void editInfoById() {
-        System.out.println("Enter the ID's CD to edit: ");
+        System.out.println(" Enter the ID's CD to edit: ");
         String id = sc.nextLine();
 
         for (int i = 0; i < cdList.size(); i++) {
             if (id.equalsIgnoreCase(cdList.get(i).getId())) {
 
                 System.out.println(" - Collection: " + cdList.get(i).getCollection());
-                System.out.println("Do want to save this information? (press Enter to Save) ");
+                System.out.println(" Do want to save this information? (press Enter to Save) ");
                 String collection = sc.nextLine();
 
                 if (!collection.isEmpty()) {
 
                     do {
-                        System.out.println("Enter the collection (game/movie/music): ");
+                        System.out.println(" Enter the collection (game/movie/music): ");
                         collection = sc.nextLine();
                     } while (!collection.equalsIgnoreCase("game")
                             && !collection.equalsIgnoreCase("movie")
@@ -125,13 +125,13 @@ public class CD_list {
                 }
 
                 System.out.println(" - Type: " + cdList.get(i).getType());
-                System.out.println("Do want to save this information? (press Enter to Save) ");
+                System.out.println(" Do want to save this information? (press Enter to Save) ");
                 String type = sc.nextLine();
 
                 if (!type.isEmpty()) {
 
                     do {
-                        System.out.println("Enter the type (audio or video): ");
+                        System.out.println(" Enter the type (audio or video): ");
                         type = sc.nextLine();
                     } while (!type.equalsIgnoreCase("\n")
                             && !type.equalsIgnoreCase("audio")
@@ -140,17 +140,17 @@ public class CD_list {
                 }
 
                 System.out.println(" - Title: " + cdList.get(i).getTitle());
-                System.out.println("Do want to save this information? (press Enter to Save) ");
+                System.out.println(" Do want to save this information? (press Enter to Save) ");
                 String title = sc.nextLine();
 
                 if (!title.isEmpty()) {
-                    System.out.println("Enter the title: ");
+                    System.out.println(" Enter the title: ");
                     title = sc.nextLine();
                     cdList.get(i).setTitle(title);
                 }
 
                 System.out.println(" - Price: " + cdList.get(i).getPrice());
-                System.out.println("Do want to save this information? (press Enter to Save) ");
+                System.out.println(" Do want to save this information? (press Enter to Save) ");
                 String change = sc.nextLine();
 
                 if (!change.isEmpty()) {
@@ -160,16 +160,16 @@ public class CD_list {
                 }
 
                 System.out.println(" - Year Of Release: " + cdList.get(i).getYearOfRelease());
-                System.out.println("Do want to save this information? (press Enter to Save) ");
+                System.out.println(" Do want to save this information? (press Enter to Save) ");
                 change = sc.nextLine();
 
                 if (!change.isEmpty()) {
-                    System.out.println("Enter the year: ");
+                    System.out.println(" Enter the year: ");
                     int year = sc.nextInt();
                     cdList.get(i).setYearOfRelease(year);
                 }
             } else {
-                System.out.println("Not found !");
+                System.out.println(" Not found !");
             }
         }
     }
