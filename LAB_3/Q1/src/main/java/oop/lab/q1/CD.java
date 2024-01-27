@@ -87,11 +87,14 @@ public class CD {
         do {
             System.out.println("Enter the CD collection (game/movie/music): ");
             collection = sc.nextLine();
-        } while (!collection.equalsIgnoreCase("game") && !collection.equalsIgnoreCase("movie") && !collection.equalsIgnoreCase("music"));
+        } while (!collection.equalsIgnoreCase("game") && !collection.equalsIgnoreCase("movie")
+                && !collection.equalsIgnoreCase("music"));
+        // && !collection.equalsIgnoreCase("\n"));
         do {
             System.out.println("Enter the CD type (audio or video): ");
             type = sc.nextLine();
         } while (!type.equalsIgnoreCase("audio") && !type.equalsIgnoreCase("video"));
+        // && !type.equalsIgnoreCase("\n"));
         System.out.println("Enter the title: ");
         title = sc.nextLine();
         System.out.println("Enter the price: ");
