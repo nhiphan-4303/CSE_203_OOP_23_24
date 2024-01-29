@@ -167,9 +167,7 @@ public class Employee_manage {
                         float salary = sc.nextFloat();
                         fullTimeEmployee.setSalary(salary);
                     }
-                }
-
-                else if (emp instanceof PartTimeEmployee) {
+                } else if (emp instanceof PartTimeEmployee) {
                     PartTimeEmployee partTimeEmployee = (PartTimeEmployee) emp;
 
                     System.out.println("Current working hour is: " + partTimeEmployee.getWorkingHour());
