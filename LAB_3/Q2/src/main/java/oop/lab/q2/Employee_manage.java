@@ -215,15 +215,15 @@ public class Employee_manage {
         Comparator<Employee> yearThenPayment = new Comparator<Employee>() {
             public int compare(Employee e1, Employee e2) {
                 if (e1.getYearOfBirth() < e2.getYearOfBirth()) {
-                    return -1;
-                } else if (e1.getYearOfBirth() > e2.getYearOfBirth()) {
                     return 1;
+                } else if (e1.getYearOfBirth() > e2.getYearOfBirth()) {
+                    return -1;
                 } else {
                     // tuổi bằng sort lương
                     if (e1.getPayment() < e2.getPayment()) {
-                        return 1;
+                        return -1;
                     } else if (e1.getPayment() > e2.getPayment()) {
-                        return - 1;
+                        return 1;
                     } else {
                         return 0;
                     }

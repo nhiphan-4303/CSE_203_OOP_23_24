@@ -177,7 +177,7 @@ public class CD_list {
     public void sortAsc() {
         Comparator<CD> com = new Comparator<CD>() {
             public int compare(CD o1, CD o2) {
-                return o2.getYearOfRelease() - o1.getYearOfRelease();
+                return o1.getYearOfRelease() - o2.getYearOfRelease();
             }
         };
         cdList.sort(com);
