@@ -10,28 +10,17 @@ import java.util.Scanner;
  *
  * @author hanie
  */
-public class Teller extends Employee{
+public class Secretary extends Officer {
 
-    private String stationNumber;
     private float hoursWorked;
 
-    public Teller() {
+    public Secretary() {
 
     }
 
-    public Teller(String stationNumber, float hoursWorked, double salary, String firstName, String lastName, int age,
-            String occupation, String identityCardNumber) {
-        super(salary, firstName, lastName, age, occupation, identityCardNumber);
-        this.stationNumber = stationNumber;
+    public Secretary(float hoursWorked, String numerberOffice, double salary, String firstName, String lastName, int age, String occupation, String identityCardNumber) {
+        super(numerberOffice, salary, firstName, lastName, age, occupation, identityCardNumber);
         this.hoursWorked = hoursWorked;
-    }
-
-    public String getStationNumber() {
-        return stationNumber;
-    }
-
-    public void setStationNumber(String stationNumber) {
-        this.stationNumber = stationNumber;
     }
 
     public float getHoursWorked() {
@@ -41,14 +30,12 @@ public class Teller extends Employee{
     public void setHoursWorked(float hoursWorked) {
         this.hoursWorked = hoursWorked;
     }
-
+    
     @Override
     public void inputPerson() {
-        super.inputPerson();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Station number: ");
-        stationNumber = sc.nextLine();
-        System.out.println("Worked Hours:  ");
+        super.inputPerson();
+        System.out.println("Enter Hour Works: ");
         hoursWorked = sc.nextFloat();
 
     }
@@ -56,12 +43,13 @@ public class Teller extends Employee{
     @Override
     public void outputPerson() {
         super.outputPerson();
-        System.out.println(" - Station number: " + stationNumber + " - Worked hours: " + stationNumber);
+        System.out.println(" - Hour Works: " + hoursWorked);
     }
 
     @Override
     public double caculateSalary() {
         return getSalary() * 1800000;
     }
+    
 
 }

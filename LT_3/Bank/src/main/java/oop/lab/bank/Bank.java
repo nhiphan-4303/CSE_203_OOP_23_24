@@ -17,19 +17,10 @@ public class Bank {
     public Bank() {
     }
 
-    public Bank(ArrayList<Employee> listEmployee) {
-        this.listEmployee = listEmployee;
-    }
-
-    public ArrayList<Employee> getListEmployee() {
-        return listEmployee;
-    }
-
-    public void setListEmployee(ArrayList<Employee> listEmployee) {
-        this.listEmployee = listEmployee;
-    }
-
     public void input() {
+        // ITax employ = new Officer();
+        // employ.InputDependant();
+        // interface có thể dùng để nêu đối tượng
 
         System.out.println("Nhap so nhan vien: ");
         Scanner sc = new Scanner(System.in);
@@ -37,17 +28,25 @@ public class Bank {
 
         for (int i = 0; i < n; i++) {
             Employee employee;
-            System.out.println("1. Officer; 2.Teller");
+            System.out.println("1. Officer; 2. Teller; 3. Secretary");
             int k = sc.nextInt();
             switch (k) {
                 case 1:
                     employee = new Officer();
                     employee.inputPerson();
+                    employee.InputDependant();
                     listEmployee.add(employee);
                     break;
                 case 2:
                     employee = new Teller();
                     employee.inputPerson();
+                    employee.InputDependant();
+                    listEmployee.add(employee);
+                    break;
+                case 3:
+                    employee = new Secretary();
+                    employee.inputPerson();
+                    employee.InputDependant();
                     listEmployee.add(employee);
                     break;
             }
@@ -55,8 +54,9 @@ public class Bank {
     }
 
     public void ouput() {
-        for (int i = 0; i < listEmployee.size(); i++) {
-            listEmployee.get(i).outputPerson();
+        for (Employee e : listEmployee) {
+            e.outputPerson();
+            e.OutputPersonalIncomeTax();
         }
     }
 
@@ -72,7 +72,7 @@ public class Bank {
         Bank ACB = new Bank();
         ACB.input();
         ACB.ouput();
-        System.out.println("Total salary: " + ACB.totalSalary());
+        System.out.println(" - Total salary: " + ACB.totalSalary());
 
     }
 }

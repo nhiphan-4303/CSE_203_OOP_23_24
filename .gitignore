@@ -11,3 +11,9 @@
 /LAB_3/Q1/target/
 /LT_4/DemoGenerics/target/
 *.class
+/LAB_4/Q1_LAB4/target/
+/LAB_4/Q2_LAB4/target/
+LAB_3/Q2/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+LAB_3/Q2/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+LAB_4/Q3_LAB4/pom.xml
+LT_1/pom.xml

@@ -10,9 +10,10 @@ import java.util.Scanner;
  *
  * @author hanie
  */
-public abstract class Employee extends Person {
+public abstract class Employee extends Person implements ITax, IInsurance {
 
     private double salary;
+    protected int numberDependants;
 
     public Employee() {
     }
@@ -21,6 +22,14 @@ public abstract class Employee extends Person {
             String identityCardNumber) {
         super(firstName, lastName, age, occupation, identityCardNumber);
         this.salary = salary;
+    }
+
+    public int getNumberDependants() {
+        return numberDependants;
+    }
+
+    public void setNumberDependants(int numberDependants) {
+        this.numberDependants = numberDependants;
     }
 
     public double getSalary() {
@@ -49,4 +58,27 @@ public abstract class Employee extends Person {
 
     public abstract double caculateSalary();
 
+    @Override
+    public void InputDependant() {
+        System.out.print("Input Dependant: ");
+        Scanner sc = new Scanner(System.in);
+        numberDependants = sc.nextInt();
+    }
+
+    @Override
+    public void PersonalIncomeTax() {
+
+    }
+
+    @Override
+    public void OutputPersonalIncomeTax() {
+        System.out.print(" - Dependant: ");
+        System.out.println(numberDependants);
+        System.out.println(" - Personal income tax: " + caculateSalary() * 0.05);
+    }
+
+    @Override
+    public void calculInsur() {
+
+    }
 }

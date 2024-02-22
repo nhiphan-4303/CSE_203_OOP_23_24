@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author hanie
  */
-public class Person {
+public class Person  {
 
     private String firstName;
     private String lastName;
@@ -91,5 +91,7 @@ public class Person {
                 "\n" + " - Occupation: " + occupation + " - ID number: " + identityCardNumber);
 
     }
+
+    
 
 }
