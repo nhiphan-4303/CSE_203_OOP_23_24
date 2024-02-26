@@ -30,7 +30,7 @@ public class ResortPriceCalculator extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         //layout control
-        JPanel panel = new JPanel();
+        JPanel panel = new JPanel(new GridLayout(0,1));
 
         basePriceLabel = new JLabel("Base price for a room is $200" + "\n"
                 + "Choose options that you want");
