@@ -28,7 +28,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -51,11 +51,10 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 31;
         gridBagConstraints.ipady = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(45, 187, 348, 0);
+        gridBagConstraints.insets = new java.awt.Insets(45, 187, 0, 0);
         jPanel1.add(btnCheckTotalStudent, gridBagConstraints);
 
         btnNewStudent.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -68,9 +67,11 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 100;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 99;
+        gridBagConstraints.ipady = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(51, 150, 0, 188);
+        gridBagConstraints.insets = new java.awt.Insets(44, 158, 347, 181);
         jPanel1.add(btnNewStudent, gridBagConstraints);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
