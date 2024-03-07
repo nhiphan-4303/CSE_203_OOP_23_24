@@ -35,6 +35,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnCheckTotalStudent = new javax.swing.JButton();
         btnNewStudent = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Student Management");
@@ -51,10 +52,10 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 31;
+        gridBagConstraints.ipadx = 29;
         gridBagConstraints.ipady = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(45, 187, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(44, 71, 0, 0);
         jPanel1.add(btnCheckTotalStudent, gridBagConstraints);
 
         btnNewStudent.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -68,16 +69,37 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 99;
-        gridBagConstraints.ipady = 13;
+        gridBagConstraints.ipadx = 91;
+        gridBagConstraints.ipady = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(44, 158, 347, 181);
+        gridBagConstraints.insets = new java.awt.Insets(44, 84, 348, 0);
         jPanel1.add(btnNewStudent, gridBagConstraints);
+
+        btnRefresh.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 137;
+        gridBagConstraints.ipady = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(44, 79, 348, 66);
+        jPanel1.add(btnRefresh, gridBagConstraints);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRefreshActionPerformed
 
     @SuppressWarnings("unchecked")
     private void btnCheckTotalStudentActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCheckTotalStudentActionPerformed
@@ -100,6 +122,7 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCheckTotalStudent;
     private javax.swing.JButton btnNewStudent;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
