@@ -4,13 +4,14 @@
  */
 package oop.lab.student_management;
 
+import java.io.Serializable;
 /**
  *
  * @author hanie
  */
 import java.util.*;
 
-public class StudentManager {
+public class StudentManager implements Serializable {
 
     public StudentManager() {
     }
@@ -18,7 +19,7 @@ public class StudentManager {
     static Scanner sc = new Scanner(System.in);
 
     // khởi tạo biến list
-    protected ArrayList<Student> listStudent = new ArrayList<Student>();
+    public ArrayList<Student> listStudent = new ArrayList<Student>();
 
     // check existed & add
     public boolean addStudent(Student stu) {

@@ -27,7 +27,8 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -77,23 +78,23 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCheckTotalStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckTotalStudentActionPerformed
-        int totalStudents = studentManager.getListStudent().size();
-        
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Students.dat"))) {
+    @SuppressWarnings("unchecked")
+    private void btnCheckTotalStudentActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCheckTotalStudentActionPerformed
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Student.dat"))) {
+            
             studentManager.listStudent = (ArrayList<Student>) ois.readObject();
-            JOptionPane.showMessageDialog(this, "There are " + totalStudents + " students in the database", "Total Students", JOptionPane.INFORMATION_MESSAGE);
+            int totalStudents = studentManager.getListStudent().size();
+            JOptionPane.showMessageDialog(this, "There are " + totalStudents + " students in the database");
+
         } catch (IOException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(this, "Error loading students from file.");
         }
 
+    }// GEN-LAST:event_btnCheckTotalStudentActionPerformed
 
-    }//GEN-LAST:event_btnCheckTotalStudentActionPerformed
-
-    private void btnNewStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewStudentActionPerformed
+    private void btnNewStudentActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnNewStudentActionPerformed
         new NewStudentDialog().setVisible(true);
-    }//GEN-LAST:event_btnNewStudentActionPerformed
-
+    }// GEN-LAST:event_btnNewStudentActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCheckTotalStudent;
