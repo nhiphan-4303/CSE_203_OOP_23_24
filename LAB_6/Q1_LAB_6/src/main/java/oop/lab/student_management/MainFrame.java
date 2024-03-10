@@ -4,12 +4,15 @@
  */
 package oop.lab.student_management;
 
+import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -25,6 +28,30 @@ public class MainFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
 
         newStudentDialog.loadStudent(studentManager.getListStudent());
+
+        JListStudent.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DELETE) {
+                    int row = JListStudent.getSelectedRow();
+                    if (row >= 0) { // Ensure a row is selected
+                        int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this student?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
+                        if (confirm == JOptionPane.YES_OPTION) {
+                            String studentID = (String) JListStudent.getValueAt(row, 0);
+                            Student student = studentManager.findStudentById(studentID);
+                            if (student != null) {
+                                studentManager.getListStudent().remove(student);
+                                ((DefaultTableModel) JListStudent.getModel()).removeRow(row);
+                                newStudentDialog.saveStudent(studentManager.getListStudent());
+
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Error: Student could not be found.");
+                            }
+                        }
+                    }
+                }
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -134,22 +161,32 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         fillInStudentTable();
+        newStudentDialog.loadStudent(studentManager.getListStudent());
     }//GEN-LAST:event_btnRefreshActionPerformed
     private void fillInStudentTable() {
         DefaultTableModel model = (DefaultTableModel) JListStudent.getModel();
-        int rowCount = model.getColumnCount();
+        int rowCount = model.getRowCount();
+        // Remove rows one by one from the end of the table
         for (int i = rowCount - 1; i >= 0; i--) {
             model.removeRow(i);
         }
+        // Add rows from the student list to the table model
         for (Student s : studentManager.getListStudent()) {
-            Object[] rows = new Object[]{s.getStudentID(), s.getFirstName(), s.getLastName(), s.getGender(), s.getSchoolStage()};
-            model.addRow(rows);
+            Object[] row = new Object[]{
+                s.getStudentID(),
+                s.getFirstName(),
+                s.getLastName(),
+                s.getGender(),
+                s.getSchoolStage()
+            };
+            model.addRow(row);
         }
         pack();
     }
 
     @SuppressWarnings("unchecked")
-    private void btnCheckTotalStudentActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCheckTotalStudentActionPerformed
+    private void btnCheckTotalStudentActionPerformed(java.awt.event.ActionEvent evt
+    ) {// GEN-FIRST:event_btnCheckTotalStudentActionPerformed
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Student.dat"))) {
 
             studentManager.listStudent = (ArrayList<Student>) ois.readObject();
@@ -163,6 +200,7 @@ public class MainFrame extends javax.swing.JFrame {
     }// GEN-LAST:event_btnCheckTotalStudentActionPerformed
 
     private void btnNewStudentActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnNewStudentActionPerformed
+        newStudentDialog.loadStudent(studentManager.getListStudent());
         new NewStudentDialog().setVisible(true);
     }// GEN-LAST:event_btnNewStudentActionPerformed
 

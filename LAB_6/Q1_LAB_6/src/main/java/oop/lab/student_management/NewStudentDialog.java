@@ -299,6 +299,8 @@ public class NewStudentDialog extends javax.swing.JFrame {
     }// GEN-LAST:event_txtYearOfBirthActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSaveActionPerformed
+        loadStudent(studentManager.getListStudent());
+        
         String studentID = txtStudentID.getText();
         String lastName = txtLastName.getText();
         String midName = txtMidName.getText();
@@ -313,7 +315,14 @@ public class NewStudentDialog extends javax.swing.JFrame {
             txtYearOfBirth.selectAll();
             return;
         }
-        String gender = btnGroupGender.getSelection().getActionCommand();
+        rbtnMale.setActionCommand("Male");
+        rbtnFemale.setActionCommand("Female");
+        String gender = "";
+        if (rbtnMale.isSelected()) {
+            gender = rbtnMale.getActionCommand();
+        } else if (rbtnFemale.isSelected()) {
+            gender = rbtnFemale.getActionCommand();
+        }
         String schoolStage = cmbSchoolStage.getSelectedItem().toString();
 
         Student stu = new Student(studentID, lastName, midName, firstName, yearOfBirth, gender, schoolStage);
@@ -321,7 +330,6 @@ public class NewStudentDialog extends javax.swing.JFrame {
         // Use the student manager to add the new student
         if (studentManager.addStudent(stu)) {
             JOptionPane.showMessageDialog(this, "Student successfully added.");
-            studentManager.getListStudent().add(stu);
             saveStudent(studentManager.getListStudent());
 
         } else {
@@ -366,6 +374,7 @@ public class NewStudentDialog extends javax.swing.JFrame {
     }// GEN-LAST:event_btnClearActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCancelActionPerformed
+        //loadStudent(studentManager.getListStudent());
         this.dispose();
     }// GEN-LAST:event_btnCancelActionPerformed
 

@@ -28,6 +28,7 @@ public class StudentManager implements Serializable {
                 return false;
             }
         }
+        listStudent.add(stu);
         return true;
     }
 
