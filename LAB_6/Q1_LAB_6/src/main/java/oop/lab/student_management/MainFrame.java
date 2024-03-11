@@ -163,7 +163,7 @@ public class MainFrame extends javax.swing.JFrame {
         fillInStudentTable();
         newStudentDialog.loadStudent(studentManager.getListStudent());
     }//GEN-LAST:event_btnRefreshActionPerformed
-    private void fillInStudentTable() {
+    protected void fillInStudentTable() {
         DefaultTableModel model = (DefaultTableModel) JListStudent.getModel();
         int rowCount = model.getRowCount();
         // Remove rows one by one from the end of the table
