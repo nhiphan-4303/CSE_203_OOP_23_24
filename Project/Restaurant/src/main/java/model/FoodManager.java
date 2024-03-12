@@ -12,8 +12,7 @@ import java.util.ArrayList;
  */
 public class FoodManager {
 
-    private ArrayList<FoodItem> foodList = new ArrayList<FoodItem>();
-    private ArrayList<FoodType> foodTypeList = new ArrayList<FoodType>();
+    private ArrayList<FoodItem> foodList = new ArrayList<>();
 
     // constructor
     public FoodManager() {
@@ -28,24 +27,6 @@ public class FoodManager {
         this.foodList = foodList;
     }
 
-    public ArrayList<FoodType> getFoodTypeList() {
-        return foodTypeList;
-    }
-
-    public void setFoodTypeList(ArrayList<FoodType> foodTypeList) {
-        this.foodTypeList = foodTypeList;
-    }
-
-    //method check exist id of type
-    public boolean addFoodType(FoodType foT) {
-        for (FoodType ft : foodTypeList) {
-            if (ft.getFoodTypeId().equalsIgnoreCase(foT.getFoodTypeId())) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     //method check exist id of food
     public boolean addFoodItem(FoodItem foI) {
         for (FoodItem fi : foodList) {
@@ -56,30 +37,10 @@ public class FoodManager {
         return true;
     }
 
-    //method edit type
-    public boolean editFoodType(FoodType foT) {
-        for (FoodType ft : foodTypeList) {
-            if (ft.getFoodTypeId().equalsIgnoreCase(foT.getFoodTypeId())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     //method edit food
     public boolean editFoodItem(FoodItem foI) {
         for (FoodItem fi : foodList) {
             if (fi.getFoodId().equalsIgnoreCase(foI.getFoodId())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    //method delete type
-    public boolean deleteFoodType(FoodType foT) {
-        for (FoodType ft : foodTypeList) {
-            if (ft.getFoodTypeId().equalsIgnoreCase(foT.getFoodTypeId())) {
                 return true;
             }
         }
@@ -115,7 +76,5 @@ public class FoodManager {
         }
         return null;
     }
-    
-    
 
 }

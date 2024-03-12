@@ -14,13 +14,14 @@ public class FoodItem {
     private String foodId;
     private String foodName;
     private double price;
-    private FoodType foodType;
+    private String foodType;
 
     // constructor
     public FoodItem() {
+
     }
 
-    public FoodItem(String foodId, String foodName, double price, FoodType foodType) {
+    public FoodItem(String foodId, String foodName, double price, String foodType) {
         this.foodId = foodId;
         this.foodName = foodName;
         this.price = price;
@@ -52,11 +53,11 @@ public class FoodItem {
         this.price = price;
     }
 
-    public FoodType getFoodType() {
+    public String getFoodType() {
         return foodType;
     }
 
-    public void setFoodType(FoodType foodType) {
+    public void setFoodType(String foodType) {
         this.foodType = foodType;
     }
 
