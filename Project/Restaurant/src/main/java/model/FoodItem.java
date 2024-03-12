@@ -4,11 +4,13 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author hanie
  */
-public class FoodItem {
+public class FoodItem implements Serializable {
 
     // thuộc tính
     private String foodId;
