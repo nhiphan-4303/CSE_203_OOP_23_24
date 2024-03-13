@@ -77,4 +77,12 @@ public class FoodManager {
         return null;
     }
 
+    public void sort_by_price_descending() {
+        foodList.sort((FoodItem f1, FoodItem f2) -> Double.compare(f2.getPrice(), f1.getPrice()));
+    }
+
+    public void sort_by_price_ascending() {
+        foodList.sort((FoodItem f1, FoodItem f2) -> Double.compare(f1.getPrice(), f2.getPrice()));
+    }
+
 }

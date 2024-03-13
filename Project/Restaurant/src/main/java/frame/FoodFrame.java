@@ -4,12 +4,15 @@ package frame;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.FoodItem;
@@ -36,6 +39,19 @@ public class FoodFrame extends javax.swing.JDialog {
         setDefaultCloseOperation(HIDE_ON_CLOSE);
         loadFoods();
 
+        priceSort.addActionListener((ActionEvent event) -> {
+            JComboBox<String> combo = (JComboBox<String>) event.getSource();
+            String selectedSort = (String) combo.getSelectedItem();
+
+            if ("price decrease".equals(selectedSort)) {
+                foodManager.sort_by_price_descending();
+            } else if ("price increase".equals(selectedSort)) {
+                foodManager.sort_by_price_ascending();
+            }
+            // Now, update the table to reflect the sorted list
+            fillInFoodTable(); // This method will read from the sorted list in foodManager and update the JTable
+        });
+
     }
 
     public void saveFoods() {
@@ -61,10 +77,14 @@ public class FoodFrame extends javax.swing.JDialog {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        deletePop = new javax.swing.JMenuItem();
+        editPop = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         foodIdJLabel = new javax.swing.JLabel();
         foodNameJLabel = new javax.swing.JLabel();
@@ -76,17 +96,37 @@ public class FoodFrame extends javax.swing.JDialog {
         foodTypeJTxt = new javax.swing.JTextField();
         refreshBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        foodTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         addBtn = new javax.swing.JButton();
-        deleteBtn = new javax.swing.JButton();
         clearBtn = new javax.swing.JButton();
-        editBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        priceSort = new javax.swing.JComboBox<>();
-        searchBtn = new javax.swing.JButton();
         searchTxt = new javax.swing.JTextField();
+        priceSort = new javax.swing.JComboBox<>();
+        searchLabel = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        foodTable = new javax.swing.JTable();
+
+        deletePop.setText("Delete\n");
+        deletePop.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deletePopMouseClicked(evt);
+            }
+        });
+        deletePop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletePopActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(deletePop);
+
+        editPop.setText("Edit");
+        editPop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editPopActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(editPop);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Menu");
@@ -101,7 +141,7 @@ public class FoodFrame extends javax.swing.JDialog {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(59, 37, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(43, 27, 0, 0);
         jPanel1.add(foodIdJLabel, gridBagConstraints);
 
         foodNameJLabel.setText("Food Name");
@@ -111,7 +151,7 @@ public class FoodFrame extends javax.swing.JDialog {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.ipadx = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(50, 37, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(67, 27, 0, 0);
         jPanel1.add(foodNameJLabel, gridBagConstraints);
 
         foodTypeJLabel.setText("Food Type");
@@ -119,7 +159,7 @@ public class FoodFrame extends javax.swing.JDialog {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(44, 37, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(62, 27, 0, 0);
         jPanel1.add(foodTypeJLabel, gridBagConstraints);
 
         foodPriceJLabel.setText("Food Price");
@@ -127,7 +167,7 @@ public class FoodFrame extends javax.swing.JDialog {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(53, 37, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(73, 27, 0, 0);
         jPanel1.add(foodPriceJLabel, gridBagConstraints);
 
         foodIdJTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -136,36 +176,36 @@ public class FoodFrame extends javax.swing.JDialog {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 380;
+        gridBagConstraints.ipadx = 199;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(59, 50, 0, 6);
+        gridBagConstraints.insets = new java.awt.Insets(40, 59, 0, 28);
         jPanel1.add(foodIdJTxt, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 380;
+        gridBagConstraints.ipadx = 199;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(47, 50, 0, 6);
+        gridBagConstraints.insets = new java.awt.Insets(64, 59, 0, 28);
         jPanel1.add(foodNameJTxt, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 380;
+        gridBagConstraints.ipadx = 199;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(50, 50, 0, 6);
+        gridBagConstraints.insets = new java.awt.Insets(70, 59, 59, 28);
         jPanel1.add(foodPriceJTxt, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 380;
+        gridBagConstraints.ipadx = 199;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(44, 50, 0, 6);
+        gridBagConstraints.insets = new java.awt.Insets(59, 59, 0, 28);
         jPanel1.add(foodTypeJTxt, gridBagConstraints);
 
         refreshBtn.setText("Refresh");
@@ -175,62 +215,29 @@ public class FoodFrame extends javax.swing.JDialog {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(19, 422, 0, 6);
+        gridBagConstraints.insets = new java.awt.Insets(6, 250, 0, 28);
         jPanel1.add(refreshBtn, gridBagConstraints);
 
         backBtn.setText("Back");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(19, 27, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 27, 0, 0);
         jPanel1.add(backBtn, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 14, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 17, 0, 0);
         getContentPane().add(jPanel1, gridBagConstraints);
-
-        foodTable.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] {
-                        { null, null, null, null },
-                        { null, null, null, null },
-                        { null, null, null, null },
-                        { null, null, null, null }
-                },
-                new String[] {
-                        "Food ID", "Food Name", "Food Type", "Food Price"
-                }) {
-            Class[] types = new Class[] {
-                    java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Double.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types[columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(foodTable);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 479;
-        gridBagConstraints.ipady = 424;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(59, 38, 6, 6);
-        getContentPane().add(jScrollPane1, gridBagConstraints);
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
@@ -242,23 +249,11 @@ public class FoodFrame extends javax.swing.JDialog {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipady = 21;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(99, 19, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 18, 0, 0);
         jPanel2.add(addBtn, gridBagConstraints);
-
-        deleteBtn.setText("Delete");
-        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteBtnActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(99, 113, 0, 0);
-        jPanel2.add(deleteBtn, gridBagConstraints);
 
         clearBtn.setText("Clear");
         clearBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -269,38 +264,40 @@ public class FoodFrame extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 15;
-        gridBagConstraints.ipady = 17;
+        gridBagConstraints.ipady = 21;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 113, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 250, 0, 0);
         jPanel2.add(clearBtn, gridBagConstraints);
-
-        editBtn.setText("Edit");
-        editBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editBtnActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(99, 118, 0, 0);
-        jPanel2.add(editBtn, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.ipadx = 127;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(46, 14, 6, 0);
+        gridBagConstraints.insets = new java.awt.Insets(36, 26, 0, 0);
         getContentPane().add(jPanel2, gridBagConstraints);
 
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        priceSort.setModel(
-                new javax.swing.DefaultComboBoxModel<>(new String[] { "price decrease", "price increase", " " }));
+        searchTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTxtActionPerformed(evt);
+            }
+        });
+        searchTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchTxtKeyReleased(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 135;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 6);
+        jPanel3.add(searchTxt, gridBagConstraints);
+
+        priceSort.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "price decrease", "price increase", " " }));
         priceSort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 priceSortActionPerformed(evt);
@@ -309,47 +306,169 @@ public class FoodFrame extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = -10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 22, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
         jPanel3.add(priceSort, gridBagConstraints);
 
-        searchBtn.setText("Search");
-        searchBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBtnActionPerformed(evt);
-            }
-        });
+        searchLabel.setText("Search");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 56, 0, 0);
-        jPanel3.add(searchBtn, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(9, 107, 0, 0);
+        jPanel3.add(searchLabel, gridBagConstraints);
 
-        searchTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchTxtActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 177;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 18, 0, 0);
-        jPanel3.add(searchTxt, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(6, 31, 0, 13);
+        getContentPane().add(jPanel3, gridBagConstraints);
+
+        foodTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Food ID", "Food Name", "Food Type", "Food Price"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        foodTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                foodTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(foodTable);
+
+        jPanel4.add(jScrollPane1);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipadx = 436;
+        gridBagConstraints.ipady = 407;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 18, 0, 0);
-        getContentPane().add(jPanel3, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(32, 31, 6, 13);
+        getContentPane().add(jPanel4, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void foodTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_foodTableMouseClicked
+        if (evt.getClickCount() == 2) {
+            jPopupMenu1.show(foodTable, evt.getX(), evt.getY() + (foodTable.getSelectedRow()) * 25);
+
+        }
+    }//GEN-LAST:event_foodTableMouseClicked
+
+    private void deletePopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletePopMouseClicked
+    }//GEN-LAST:event_deletePopMouseClicked
+
+    private void deletePopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePopActionPerformed
+
+        int selectedRow = foodTable.getSelectedRow();
+        if (selectedRow >= 0) { // Make sure a row is selected
+            String foodId = (String) foodTable.getValueAt(selectedRow, 0); // Assuming the first column is the Food ID
+            int confirm = JOptionPane.showConfirmDialog(this,
+                    "Are you sure you want to delete this food item?", "Delete Confirmation",
+                    JOptionPane.YES_NO_OPTION);
+
+            if (confirm == JOptionPane.YES_OPTION) {
+                FoodItem item = foodManager.findFoodItemById(foodId);
+
+                if (item != null) {
+                    foodManager.getFoodList().remove(item);
+                    ((DefaultTableModel) foodTable.getModel()).removeRow(selectedRow);
+                    saveFoods();
+                    JOptionPane.showMessageDialog(this, "Food item deleted successfully.");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Error: Food item not found.", "Deletion Error",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "No Selection",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_deletePopActionPerformed
+
+    private void editPopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPopActionPerformed
+        int selectedRow = foodTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            // Assuming the first column is the Food ID
+            String foodId = (String) foodTable.getValueAt(selectedRow, 0);
+            FoodItem itemToEdit = foodManager.findFoodItemById(foodId);
+
+            if (itemToEdit != null) {
+                // Get new values from the user
+                String newName = JOptionPane.showInputDialog(this, "Enter new food name:", itemToEdit.getFoodName());
+                String newType = JOptionPane.showInputDialog(this, "Enter new food type:", itemToEdit.getFoodType());
+                String newPriceStr = JOptionPane.showInputDialog(this, "Enter new food price:", itemToEdit.getPrice());
+                double newPrice = itemToEdit.getPrice(); // keep old price in case the input is invalid
+
+                // Validate and parse the new price
+                try {
+                    newPrice = Double.parseDouble(newPriceStr);
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(this, "Invalid price format. Please enter a valid number.",
+                            "Invalid Input", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                // Update the FoodItem properties
+                itemToEdit.setFoodName(newName);
+                itemToEdit.setFoodType(newType);
+                itemToEdit.setPrice(newPrice);
+
+                // Reflect changes in the table
+                foodTable.setValueAt(newName, selectedRow, 1); // Assuming second column is Name
+                foodTable.setValueAt(newType, selectedRow, 2); // Assuming third column is Type
+                foodTable.setValueAt(newPrice, selectedRow, 3); // Assuming fourth column is Price
+
+                // Persist changes
+                saveFoods();
+                JOptionPane.showMessageDialog(this, "Food item updated successfully.");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error: Food item not found.", "Update Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a food item to edit.", "No Selection", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_editPopActionPerformed
+
+    private void searchTxtKeyReleased(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_searchTxtKeyReleased
+
+        String searchText = searchTxt.getText().toLowerCase();
+        DefaultTableModel model = (DefaultTableModel) foodTable.getModel();
+        model.setRowCount(0); // Clear the table before the search
+
+        // Use a stream to filter the food list by name
+        foodManager.getFoodList().stream()
+                .filter(foodItem -> foodItem.getFoodName().toLowerCase().contains(searchText))
+                .forEach(filteredFoodItem -> {
+                    model.addRow(new Object[]{
+                        filteredFoodItem.getFoodId(),
+                        filteredFoodItem.getFoodName(),
+                        filteredFoodItem.getFoodType(),
+                        filteredFoodItem.getPrice()
+                    });
+                });
+    }// GEN-LAST:event_searchTxtKeyReleased
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_searchBtnActionPerformed
 
@@ -386,7 +505,7 @@ public class FoodFrame extends javax.swing.JDialog {
                     JOptionPane.showMessageDialog(this, "This ID existed !");
                 }
             }
-            
+
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Food Price must be numbers.", "Invalid Input",
                     JOptionPane.ERROR_MESSAGE);
@@ -408,45 +527,16 @@ public class FoodFrame extends javax.swing.JDialog {
         }
         // Add rows from the student list to the table model
         for (FoodItem fi : foodManager.getFoodList()) {
-            Object[] row = new Object[] {
-                    fi.getFoodId(),
-                    fi.getFoodName(),
-                    fi.getFoodType(),
-                    fi.getPrice()
+            Object[] row = new Object[]{
+                fi.getFoodId(),
+                fi.getFoodName(),
+                fi.getFoodType(),
+                fi.getPrice()
             };
             model.addRow(row);
         }
         pack();
     }
-
-    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_deleteBtnActionPerformed
-
-        int selectedRow = foodTable.getSelectedRow();
-        if (selectedRow >= 0) { // Make sure a row is selected
-            String foodId = (String) foodTable.getValueAt(selectedRow, 0); // Assuming the first column is the Food ID
-            int confirm = JOptionPane.showConfirmDialog(this,
-                    "Are you sure you want to delete this food item?", "Delete Confirmation",
-                    JOptionPane.YES_NO_OPTION);
-
-            if (confirm == JOptionPane.YES_OPTION) {
-                FoodItem item = foodManager.findFoodItemById(foodId);
-
-                if (item != null) {
-                    foodManager.getFoodList().remove(item);
-                    ((DefaultTableModel) foodTable.getModel()).removeRow(selectedRow);
-                    saveFoods();
-                    JOptionPane.showMessageDialog(this, "Food item deleted successfully.");
-                } else {
-                    JOptionPane.showMessageDialog(this, "Error: Food item not found.", "Deletion Error",
-                            JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "No Selection",
-                    JOptionPane.WARNING_MESSAGE);
-        }
-
-    }// GEN-LAST:event_deleteBtnActionPerformed
 
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_clearBtnActionPerformed
         foodIdJTxt.setText(" ");
@@ -517,8 +607,8 @@ public class FoodFrame extends javax.swing.JDialog {
     private javax.swing.JButton addBtn;
     private javax.swing.JButton backBtn;
     private javax.swing.JButton clearBtn;
-    private javax.swing.JButton deleteBtn;
-    private javax.swing.JButton editBtn;
+    private javax.swing.JMenuItem deletePop;
+    private javax.swing.JMenuItem editPop;
     private javax.swing.JLabel foodIdJLabel;
     private javax.swing.JTextField foodIdJTxt;
     private javax.swing.JLabel foodNameJLabel;
@@ -531,10 +621,12 @@ public class FoodFrame extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> priceSort;
     private javax.swing.JButton refreshBtn;
-    private javax.swing.JButton searchBtn;
+    private javax.swing.JLabel searchLabel;
     private javax.swing.JTextField searchTxt;
     // End of variables declaration//GEN-END:variables
 }
