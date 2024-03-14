@@ -11,54 +11,62 @@ package model;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 public class FoodBill {
 
-    private String titlePrintBill;
-    private float total;
-    private float price;
-    private int quantityBill;
+    private Customer customer; // Assuming a Customer class is already defined
+    private List<FoodItem> foodItems;
+    private LocalDateTime issueTime;
 
-    public FoodBill(String titlePrintBill) {
-        this.titlePrintBill = titlePrintBill;
-        this.total = 0;
-        this.price = 0;
-        this.quantityBill = 0;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    // Method to add an item to the bill
-    public void addItemToBill(float price, int quantity) {
-        this.price = price; // Assuming this is the price per item
-        this.quantityBill += quantity; // Add the quantity of this item to the total bill quantity
-        this.total += price * quantity; // Add the price for this item (price * quantity) to the total
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    // Getters and Setters
-    public String getTitlePrintBill() {
-        return titlePrintBill;
+    public List<FoodItem> getFoodItems() {
+        return foodItems;
     }
 
-    public void setTitlePrintBill(String titlePrintBill) {
-        this.titlePrintBill = titlePrintBill;
+    public void setFoodItems(List<FoodItem> foodItems) {
+        this.foodItems = foodItems;
     }
 
-    public float getTotal() {
-        return total;
+    public LocalDateTime getIssueTime() {
+        return issueTime;
     }
 
-    public float getPrice() {
-        return price;
+    public void setIssueTime(LocalDateTime issueTime) {
+        this.issueTime = issueTime;
     }
 
-    public void setPrice(float price) {
-        this.price = price; // Note: This would set the price per item for future additions
+    public FoodBill(Customer customer, List<FoodItem> foodItems, LocalDateTime issueTime) {
+        this.customer = customer;
+        this.foodItems = foodItems;
+        this.issueTime = issueTime;
     }
 
-    public int getQuantityBill() {
-        return quantityBill;
+    public FoodBill() {
     }
 
-    public String printBill() {
-        return String.format("%s\nTotal Items: %d\nTotal: $%.2f",
-                titlePrintBill, quantityBill, total);
+    public int calculateTotalQuantity(int quantity) {
+        int totalQuantity = 0;
+        return totalQuantity += quantity;
     }
+
+    // Calculate total price of all food items
+    public double calculateTotalPrice(int quantity) {
+        double totalPrice = 0.0;
+        for (FoodItem item : foodItems) {
+            // Assuming that each FoodItem has a method getPrice to return the price of the item
+            totalPrice += item.calculatePrice(quantity);
+        }
+        return totalPrice;
+    }
+
 }
