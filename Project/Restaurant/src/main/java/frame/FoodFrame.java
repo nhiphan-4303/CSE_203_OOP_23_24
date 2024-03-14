@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -36,8 +37,11 @@ public class FoodFrame extends javax.swing.JDialog {
     public FoodFrame(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
+
         loadFoods();
+        fillInFoodTable();
 
         priceSort.addActionListener((ActionEvent event) -> {
             JComboBox<String> combo = (JComboBox<String>) event.getSource();
@@ -52,6 +56,9 @@ public class FoodFrame extends javax.swing.JDialog {
             fillInFoodTable(); // This method will read from the sorted list in foodManager and update the JTable
         });
 
+    }
+
+    public FoodFrame() {
     }
 
     public void saveFoods() {
@@ -80,32 +87,31 @@ public class FoodFrame extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         deletePop = new javax.swing.JMenuItem();
         editPop = new javax.swing.JMenuItem();
+        jPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         foodIdJLabel = new javax.swing.JLabel();
-        foodNameJLabel = new javax.swing.JLabel();
         foodTypeJLabel = new javax.swing.JLabel();
         foodPriceJLabel = new javax.swing.JLabel();
         foodIdJTxt = new javax.swing.JTextField();
-        foodNameJTxt = new javax.swing.JTextField();
         foodPriceJTxt = new javax.swing.JTextField();
         foodTypeJTxt = new javax.swing.JTextField();
-        refreshBtn = new javax.swing.JButton();
-        backBtn = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
         addBtn = new javax.swing.JButton();
+        saveBtn = new javax.swing.JButton();
         clearBtn = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        searchTxt = new javax.swing.JTextField();
-        priceSort = new javax.swing.JComboBox<>();
-        searchLabel = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        foodNameJLabel = new javax.swing.JLabel();
+        foodNameJTxt = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         foodTable = new javax.swing.JTable();
+        backBtn = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        priceSort = new javax.swing.JComboBox<>();
+        searchTxt = new javax.swing.JTextField();
+        searchLabel = new javax.swing.JLabel();
 
         deletePop.setText("Delete\n");
         deletePop.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -130,116 +136,19 @@ public class FoodFrame extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Menu");
-        getContentPane().setLayout(new java.awt.GridBagLayout());
-
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         foodIdJLabel.setText("Food ID");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(43, 27, 0, 0);
-        jPanel1.add(foodIdJLabel, gridBagConstraints);
-
-        foodNameJLabel.setText("Food Name");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(67, 27, 0, 0);
-        jPanel1.add(foodNameJLabel, gridBagConstraints);
 
         foodTypeJLabel.setText("Food Type");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(62, 27, 0, 0);
-        jPanel1.add(foodTypeJLabel, gridBagConstraints);
 
         foodPriceJLabel.setText("Food Price");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(73, 27, 0, 0);
-        jPanel1.add(foodPriceJLabel, gridBagConstraints);
 
         foodIdJTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 foodIdJTxtActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 199;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(40, 59, 0, 28);
-        jPanel1.add(foodIdJTxt, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 199;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(64, 59, 0, 28);
-        jPanel1.add(foodNameJTxt, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 199;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(70, 59, 59, 28);
-        jPanel1.add(foodPriceJTxt, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 199;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(59, 59, 0, 28);
-        jPanel1.add(foodTypeJTxt, gridBagConstraints);
-
-        refreshBtn.setText("Refresh");
-        refreshBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshBtnActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 250, 0, 28);
-        jPanel1.add(refreshBtn, gridBagConstraints);
-
-        backBtn.setText("Back");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 27, 0, 0);
-        jPanel1.add(backBtn, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 17, 0, 0);
-        getContentPane().add(jPanel1, gridBagConstraints);
-
-        jPanel2.setLayout(new java.awt.GridBagLayout());
 
         addBtn.setText("Add");
         addBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -247,13 +156,13 @@ public class FoodFrame extends javax.swing.JDialog {
                 addBtnActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = 21;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 18, 0, 0);
-        jPanel2.add(addBtn, gridBagConstraints);
+
+        saveBtn.setText("Save");
+        saveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveBtnActionPerformed(evt);
+            }
+        });
 
         clearBtn.setText("Clear");
         clearBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -261,72 +170,75 @@ public class FoodFrame extends javax.swing.JDialog {
                 clearBtnActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = 21;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 250, 0, 0);
-        jPanel2.add(clearBtn, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(36, 26, 0, 0);
-        getContentPane().add(jPanel2, gridBagConstraints);
+        foodNameJLabel.setText("Food Name");
 
-        jPanel3.setLayout(new java.awt.GridBagLayout());
-
-        searchTxt.addActionListener(new java.awt.event.ActionListener() {
+        foodNameJTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchTxtActionPerformed(evt);
+                foodNameJTxtActionPerformed(evt);
             }
         });
-        searchTxt.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                searchTxtKeyReleased(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 135;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 6);
-        jPanel3.add(searchTxt, gridBagConstraints);
 
-        priceSort.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "price decrease", "price increase", " " }));
-        priceSort.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                priceSortActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = -10;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
-        jPanel3.add(priceSort, gridBagConstraints);
-
-        searchLabel.setText("Search");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(9, 107, 0, 0);
-        jPanel3.add(searchLabel, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 31, 0, 13);
-        getContentPane().add(jPanel3, gridBagConstraints);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(addBtn)
+                        .addGap(216, 216, 216)
+                        .addComponent(saveBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(clearBtn))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(foodIdJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(foodIdJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(foodNameJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(foodNameJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(67, 67, 67)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(foodTypeJLabel)
+                            .addComponent(foodTypeJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(foodPriceJLabel)
+                            .addComponent(foodPriceJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(19, 19, 19))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(foodIdJLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(foodIdJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(foodTypeJLabel)
+                                    .addComponent(foodPriceJLabel)
+                                    .addComponent(foodNameJLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(foodTypeJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(foodPriceJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(foodNameJTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 27, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addBtn)
+                    .addComponent(saveBtn)
+                    .addComponent(clearBtn))
+                .addContainerGap())
+        );
 
         foodTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -354,17 +266,101 @@ public class FoodFrame extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(foodTable);
 
-        jPanel4.add(jScrollPane1);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.ipadx = 436;
-        gridBagConstraints.ipady = 407;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(32, 31, 6, 13);
-        getContentPane().add(jPanel4, gridBagConstraints);
+        backBtn.setText("Back");
+
+        priceSort.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "price decrease", "price increase", " " }));
+        priceSort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                priceSortActionPerformed(evt);
+            }
+        });
+
+        searchTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTxtActionPerformed(evt);
+            }
+        });
+        searchTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchTxtKeyReleased(evt);
+            }
+        });
+
+        searchLabel.setText("Search");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(priceSort, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(searchLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(priceSort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchLabel)
+                    .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 13, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
+        jPanel.setLayout(jPanelLayout);
+        jPanelLayout.setHorizontalGroup(
+            jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelLayout.createSequentialGroup()
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(backBtn)
+                        .addGap(225, 225, 225)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelLayout.setVerticalGroup(
+            jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(backBtn)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        getContentPane().add(jPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, 506));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -408,48 +404,61 @@ public class FoodFrame extends javax.swing.JDialog {
     }//GEN-LAST:event_deletePopActionPerformed
 
     private void editPopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPopActionPerformed
+        getDataFromTable();
+    }//GEN-LAST:event_editPopActionPerformed
+
+    private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         int selectedRow = foodTable.getSelectedRow();
-        if (selectedRow >= 0) {
-            // Assuming the first column is the Food ID
-            String foodId = (String) foodTable.getValueAt(selectedRow, 0);
-            FoodItem itemToEdit = foodManager.findFoodItemById(foodId);
+
+        if (selectedRow != -1) {
+
+            FoodItem itemToEdit = foodManager.findFoodItemById(foodIdJTxt.getText());
 
             if (itemToEdit != null) {
-                // Get new values from the user
-                String newName = JOptionPane.showInputDialog(this, "Enter new food name:", itemToEdit.getFoodName());
-                String newType = JOptionPane.showInputDialog(this, "Enter new food type:", itemToEdit.getFoodType());
-                String newPriceStr = JOptionPane.showInputDialog(this, "Enter new food price:", itemToEdit.getPrice());
-                double newPrice = itemToEdit.getPrice(); // keep old price in case the input is invalid
 
-                // Validate and parse the new price
+                itemToEdit.setFoodName(foodNameJTxt.getText());
+                itemToEdit.setFoodType(foodTypeJTxt.getText());
                 try {
-                    newPrice = Double.parseDouble(newPriceStr);
+                    double price = Double.parseDouble(foodPriceJTxt.getText());
+                    itemToEdit.setPrice(price);
+
+                    DefaultTableModel model = (DefaultTableModel) foodTable.getModel();
+                    model.setValueAt(itemToEdit.getFoodName(), selectedRow, 1);
+                    model.setValueAt(itemToEdit.getFoodType(), selectedRow, 2);
+                    model.setValueAt(itemToEdit.getPrice(), selectedRow, 3);
+
+                    saveFoods();
+
+                    JOptionPane.showMessageDialog(this, "Food item updated successfully.");
                 } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(this, "Invalid price format. Please enter a valid number.",
-                            "Invalid Input", JOptionPane.ERROR_MESSAGE);
-                    return;
+                    JOptionPane.showMessageDialog(this, "Invalid price format. Please enter a valid number.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
                 }
 
-                // Update the FoodItem properties
-                itemToEdit.setFoodName(newName);
-                itemToEdit.setFoodType(newType);
-                itemToEdit.setPrice(newPrice);
-
-                // Reflect changes in the table
-                foodTable.setValueAt(newName, selectedRow, 1); // Assuming second column is Name
-                foodTable.setValueAt(newType, selectedRow, 2); // Assuming third column is Type
-                foodTable.setValueAt(newPrice, selectedRow, 3); // Assuming fourth column is Price
-
-                // Persist changes
-                saveFoods();
-                JOptionPane.showMessageDialog(this, "Food item updated successfully.");
             } else {
                 JOptionPane.showMessageDialog(this, "Error: Food item not found.", "Update Error", JOptionPane.ERROR_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Please select a food item to edit.", "No Selection", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No food item selected to edit.", "No Selection", JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_editPopActionPerformed
+
+    }//GEN-LAST:event_saveBtnActionPerformed
+
+    private void foodNameJTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodNameJTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_foodNameJTxtActionPerformed
+    private void getDataFromTable() {
+        int selectedRow = foodTable.getSelectedRow();
+        if (selectedRow != -1) {
+            FoodItem fi = foodManager.getFoodList().get(selectedRow);
+
+            foodIdJTxt.setText(fi.getFoodId());
+            foodNameJTxt.setText(fi.getFoodName());
+            foodTypeJTxt.setText(fi.getFoodType());
+            foodPriceJTxt.setText(String.valueOf(fi.getPrice()));
+
+            foodIdJTxt.setEditable(false);
+        }
+    }
 
     private void searchTxtKeyReleased(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_searchTxtKeyReleased
 
@@ -457,9 +466,10 @@ public class FoodFrame extends javax.swing.JDialog {
         DefaultTableModel model = (DefaultTableModel) foodTable.getModel();
         model.setRowCount(0); // Clear the table before the search
 
-        // Use a stream to filter the food list by name
+        // Use a stream to filter the food list by name or type
         foodManager.getFoodList().stream()
-                .filter(foodItem -> foodItem.getFoodName().toLowerCase().contains(searchText))
+                .filter(foodItem -> foodItem.getFoodName().toLowerCase().contains(searchText)
+                || foodItem.getFoodType().toLowerCase().contains(searchText))
                 .forEach(filteredFoodItem -> {
                     model.addRow(new Object[]{
                         filteredFoodItem.getFoodId(),
@@ -468,6 +478,7 @@ public class FoodFrame extends javax.swing.JDialog {
                         filteredFoodItem.getPrice()
                     });
                 });
+
     }// GEN-LAST:event_searchTxtKeyReleased
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_searchBtnActionPerformed
@@ -483,17 +494,16 @@ public class FoodFrame extends javax.swing.JDialog {
     }// GEN-LAST:event_foodIdJTxtActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addBtnActionPerformed
+        //DecimalFormat df = new DecimalFormat("#.###");
+        String foodId = foodIdJTxt.getText();
+        String foodName = foodNameJTxt.getText();
+        String foodType = foodTypeJTxt.getText();
+        String foodPriceText = foodPriceJTxt.getText();
 
-        try {
-            String foodId = foodIdJTxt.getText();
-            String foodName = foodNameJTxt.getText();
-            String foodType = foodTypeJTxt.getText();
-            String foodPriceText = foodPriceJTxt.getText();
-
-            // Validate inputs
-            if (foodId.isEmpty() || foodName.isEmpty() || foodType.isEmpty() || foodPriceText.isEmpty()) {
-                throw new IllegalArgumentException("Please fill in all fields.");
-            } else {
+        if (foodId.isEmpty() || foodName.isEmpty() || foodType.isEmpty() || foodPriceText.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please complete all information.", "Announcement", JOptionPane.WARNING_MESSAGE);
+        } else {
+            try {
                 double foodPrice = Double.parseDouble(foodPriceText);
                 FoodItem fi = new FoodItem(foodId, foodName, foodPrice, foodType);
 
@@ -504,19 +514,16 @@ public class FoodFrame extends javax.swing.JDialog {
                 } else {
                     JOptionPane.showMessageDialog(this, "This ID existed !");
                 }
+
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Food Price must be numbers.", "Invalid Input",
+                        JOptionPane.ERROR_MESSAGE);
             }
+            loadFoods();
+            fillInFoodTable();
 
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Food Price must be numbers.", "Invalid Input",
-                    JOptionPane.ERROR_MESSAGE);
-        } catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Incomplete Data", JOptionPane.WARNING_MESSAGE);
-        }
-
-        loadFoods();
-        fillInFoodTable();
-
-    }// GEN-LAST:event_addBtnActionPerformed
+        }// GEN-LAST:event_addBtnActionPerformed
+    }
 
     private void fillInFoodTable() {
         DefaultTableModel model = (DefaultTableModel) foodTable.getModel();
@@ -618,14 +625,14 @@ public class FoodFrame extends javax.swing.JDialog {
     private javax.swing.JTable foodTable;
     private javax.swing.JLabel foodTypeJLabel;
     private javax.swing.JTextField foodTypeJTxt;
+    private javax.swing.JPanel jPanel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> priceSort;
-    private javax.swing.JButton refreshBtn;
+    private javax.swing.JButton saveBtn;
     private javax.swing.JLabel searchLabel;
     private javax.swing.JTextField searchTxt;
     // End of variables declaration//GEN-END:variables
