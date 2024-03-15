@@ -17,17 +17,25 @@ public class FoodItem implements Serializable {
     private String foodName;
     private double price;
     private String foodType;
+    private int quantity;
 
-    // constructor
-    public FoodItem() {
-
-    }
-
-    public FoodItem(String foodId, String foodName, double price, String foodType) {
+    public FoodItem(String foodId, String foodName, double price, String foodType, int quantity) {
         this.foodId = foodId;
         this.foodName = foodName;
         this.price = price;
         this.foodType = foodType;
+        this.quantity = quantity;
+    }
+
+    public FoodItem() {
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
 // getter setter 
@@ -71,7 +79,7 @@ public class FoodItem implements Serializable {
     // method trả về chuỗi kết quả
     @Override
     public String toString() {
-        return "Food ID: " + foodId + ", Name: " + foodName + ", Price: " + price;
+        return "Food ID: " + foodId + ", Name: " + foodName + ", Price: " + price + ", Quantity " + quantity;
     }
 
 }

@@ -69,15 +69,15 @@
                           <EmptySpace min="54" pref="54" max="-2" attributes="0"/>
                           <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
-                          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
                           <Component id="backBtn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
                           <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -109,32 +109,40 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="addBtn" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="216" max="-2" attributes="0"/>
                               <Component id="saveBtn" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="clearBtn" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="foodIdJLabel" alignment="0" min="-2" pref="62" max="-2" attributes="0"/>
-                                  <Component id="foodIdJTxt" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
+                                  <Component id="foodIdJLabel" min="-2" pref="62" max="-2" attributes="0"/>
+                                  <Component id="foodIdJTxt" min="-2" pref="108" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="foodNameJLabel" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <Component id="foodNameJTxt" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                                  <Component id="foodNameJTxt" min="-2" pref="111" max="-2" attributes="0"/>
+                                  <Component id="foodNameJLabel" min="-2" pref="71" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="foodTypeJLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="foodTypeJTxt" min="-2" pref="111" max="-2" attributes="0"/>
+                                  <Component id="foodTypeJLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="78" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="foodPriceJLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="foodPriceJTxt" min="-2" pref="117" max="-2" attributes="0"/>
+                                  <Component id="foodPriceJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="foodPriceJTxt" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="quantityLabel" min="-2" pref="54" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="quantityJTxt" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -154,20 +162,18 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="foodTypeJLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="foodPriceJLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="foodNameJLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="foodTypeJTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="foodPriceJTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="foodNameJTxt" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="foodTypeJLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="foodPriceJLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="foodNameJLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="quantityLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="foodTypeJTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="foodPriceJTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="foodNameJTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="quantityJTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -241,6 +247,13 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="foodNameJTxtActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JLabel" name="quantityLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Quantity"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="quantityJTxt">
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel2">
@@ -273,15 +286,21 @@
                 <Component class="javax.swing.JTable" name="foodTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
+                      <Table columnCount="5" rowCount="4">
                         <Column editable="true" title="Food ID" type="java.lang.String"/>
                         <Column editable="true" title="Food Name" type="java.lang.String"/>
                         <Column editable="true" title="Food Type" type="java.lang.Object"/>
                         <Column editable="true" title="Food Price" type="java.lang.Double"/>
+                        <Column editable="true" title="Quantity" type="java.lang.Integer"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>

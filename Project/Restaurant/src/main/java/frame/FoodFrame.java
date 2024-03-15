@@ -63,7 +63,7 @@ public class FoodFrame extends javax.swing.JDialog {
 
     public void saveFoods() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Foods.dat"))) {
-            oos.writeObject(foodManager.getFoodList()); // Save only the ArrayList<CD>
+            oos.writeObject(foodManager.getFoodList());
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Error saving Foods to file: " + e.getMessage());
         }
@@ -104,6 +104,8 @@ public class FoodFrame extends javax.swing.JDialog {
         clearBtn = new javax.swing.JButton();
         foodNameJLabel = new javax.swing.JLabel();
         foodNameJTxt = new javax.swing.JTextField();
+        quantityLabel = new javax.swing.JLabel();
+        quantityJTxt = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         foodTable = new javax.swing.JTable();
@@ -179,6 +181,8 @@ public class FoodFrame extends javax.swing.JDialog {
             }
         });
 
+        quantityLabel.setText("Quantity");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -195,19 +199,25 @@ public class FoodFrame extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(foodIdJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(foodIdJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(foodIdJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(51, 51, 51)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(foodNameJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(foodNameJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(67, 67, 67)
+                            .addComponent(foodNameJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(foodNameJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(54, 54, 54)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(foodTypeJLabel)
-                            .addComponent(foodTypeJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                            .addComponent(foodTypeJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(foodTypeJLabel))
+                        .addGap(53, 53, 53)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(foodPriceJLabel)
-                            .addComponent(foodPriceJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(foodPriceJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(quantityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(42, 42, 42))
+                            .addComponent(quantityJTxt))))
                 .addGap(19, 19, 19))
         );
         jPanel1Layout.setVerticalGroup(
@@ -221,17 +231,17 @@ public class FoodFrame extends javax.swing.JDialog {
                         .addComponent(foodIdJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(foodTypeJLabel)
-                                    .addComponent(foodPriceJLabel)
-                                    .addComponent(foodNameJLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(foodTypeJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(foodPriceJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(foodNameJTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(foodTypeJLabel)
+                            .addComponent(foodPriceJLabel)
+                            .addComponent(foodNameJLabel)
+                            .addComponent(quantityLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(foodTypeJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(foodPriceJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(foodNameJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(quantityJTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 27, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBtn)
@@ -242,17 +252,17 @@ public class FoodFrame extends javax.swing.JDialog {
 
         foodTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Food ID", "Food Name", "Food Type", "Food Price"
+                "Food ID", "Food Name", "Food Type", "Food Price", "Quantity"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Double.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -338,13 +348,13 @@ public class FoodFrame extends javax.swing.JDialog {
                         .addGap(54, 54, 54)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(backBtn)
                         .addGap(225, 225, 225)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelLayout.setVerticalGroup(
@@ -411,29 +421,30 @@ public class FoodFrame extends javax.swing.JDialog {
         int selectedRow = foodTable.getSelectedRow();
 
         if (selectedRow != -1) {
-
             FoodItem itemToEdit = foodManager.findFoodItemById(foodIdJTxt.getText());
 
             if (itemToEdit != null) {
-
                 itemToEdit.setFoodName(foodNameJTxt.getText());
                 itemToEdit.setFoodType(foodTypeJTxt.getText());
                 try {
                     double price = Double.parseDouble(foodPriceJTxt.getText());
+                    int quantity = Integer.parseInt(quantityJTxt.getText()); // Capture quantity from the UI
+
                     itemToEdit.setPrice(price);
+                    itemToEdit.setQuantity(quantity); // Update the item's quantity
 
                     DefaultTableModel model = (DefaultTableModel) foodTable.getModel();
                     model.setValueAt(itemToEdit.getFoodName(), selectedRow, 1);
                     model.setValueAt(itemToEdit.getFoodType(), selectedRow, 2);
                     model.setValueAt(itemToEdit.getPrice(), selectedRow, 3);
+                    model.setValueAt(itemToEdit.getQuantity(), selectedRow, 4);
 
-                    saveFoods();
+                    saveFoods(); // Save the updated list to file
 
                     JOptionPane.showMessageDialog(this, "Food item updated successfully.");
                 } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(this, "Invalid price format. Please enter a valid number.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Invalid format. Please enter valid numbers for price and quantity.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
                 }
-
             } else {
                 JOptionPane.showMessageDialog(this, "Error: Food item not found.", "Update Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -455,6 +466,7 @@ public class FoodFrame extends javax.swing.JDialog {
             foodNameJTxt.setText(fi.getFoodName());
             foodTypeJTxt.setText(fi.getFoodType());
             foodPriceJTxt.setText(String.valueOf(fi.getPrice()));
+            quantityJTxt.setText(String.valueOf(fi.getQuantity()));
 
             foodIdJTxt.setEditable(false);
         }
@@ -475,7 +487,8 @@ public class FoodFrame extends javax.swing.JDialog {
                         filteredFoodItem.getFoodId(),
                         filteredFoodItem.getFoodName(),
                         filteredFoodItem.getFoodType(),
-                        filteredFoodItem.getPrice()
+                        filteredFoodItem.getPrice(),
+                        filteredFoodItem.getQuantity()
                     });
                 });
 
@@ -499,13 +512,15 @@ public class FoodFrame extends javax.swing.JDialog {
         String foodName = foodNameJTxt.getText();
         String foodType = foodTypeJTxt.getText();
         String foodPriceText = foodPriceJTxt.getText();
+        String quantityText = quantityJTxt.getText();
 
-        if (foodId.isEmpty() || foodName.isEmpty() || foodType.isEmpty() || foodPriceText.isEmpty()) {
+        if (foodId.isEmpty() || foodName.isEmpty() || foodType.isEmpty() || foodPriceText.isEmpty() || quantityText.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please complete all information.", "Announcement", JOptionPane.WARNING_MESSAGE);
         } else {
             try {
                 double foodPrice = Double.parseDouble(foodPriceText);
-                FoodItem fi = new FoodItem(foodId, foodName, foodPrice, foodType);
+                int quantity = Integer.parseInt(quantityText);
+                FoodItem fi = new FoodItem(foodId, foodName, foodPrice, foodType, quantity);
 
                 if (foodManager.addFoodItem(fi)) {
                     foodManager.getFoodList().add(fi);
@@ -516,7 +531,7 @@ public class FoodFrame extends javax.swing.JDialog {
                 }
 
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(this, "Food Price must be numbers.", "Invalid Input",
+                JOptionPane.showMessageDialog(this, "Food Price and Quantity must be numbers.", "Invalid Input",
                         JOptionPane.ERROR_MESSAGE);
             }
             loadFoods();
@@ -538,7 +553,8 @@ public class FoodFrame extends javax.swing.JDialog {
                 fi.getFoodId(),
                 fi.getFoodName(),
                 fi.getFoodType(),
-                fi.getPrice()
+                fi.getPrice(),
+                fi.getQuantity()
             };
             model.addRow(row);
         }
@@ -550,6 +566,7 @@ public class FoodFrame extends javax.swing.JDialog {
         foodNameJTxt.setText(" ");
         foodTypeJTxt.setText(" ");
         foodPriceJTxt.setText(" ");
+        quantityJTxt.setText(" ");
     }// GEN-LAST:event_clearBtnActionPerformed
 
     private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_refreshBtnActionPerformed
@@ -632,6 +649,8 @@ public class FoodFrame extends javax.swing.JDialog {
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> priceSort;
+    private javax.swing.JTextField quantityJTxt;
+    private javax.swing.JLabel quantityLabel;
     private javax.swing.JButton saveBtn;
     private javax.swing.JLabel searchLabel;
     private javax.swing.JTextField searchTxt;

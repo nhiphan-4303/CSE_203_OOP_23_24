@@ -9,64 +9,55 @@ package model;
  * @author hanie
  */
 import java.time.LocalDateTime;
-import java.util.List;
-
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 
 public class FoodBill {
 
-    private Customer customer; // Assuming a Customer class is already defined
-    private List<FoodItem> foodItems;
-    private LocalDateTime issueTime;
+    private String foodName;
+    private double price;
+    private int orderQuantity;
+    private double totalPrice;
 
-    public Customer getCustomer() {
-        return customer;
+    public String getFoodName() {
+        return foodName;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setFoodName(String foodName) {
+        this.foodName = foodName;
     }
 
-    public List<FoodItem> getFoodItems() {
-        return foodItems;
+    public double getPrice() {
+        return price;
     }
 
-    public void setFoodItems(List<FoodItem> foodItems) {
-        this.foodItems = foodItems;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public LocalDateTime getIssueTime() {
-        return issueTime;
+    public int getOrderQuantity() {
+        return orderQuantity;
     }
 
-    public void setIssueTime(LocalDateTime issueTime) {
-        this.issueTime = issueTime;
+    public void setOrderQuantity(int orderQuantity) {
+        this.orderQuantity = orderQuantity;
     }
 
-    public FoodBill(Customer customer, List<FoodItem> foodItems, LocalDateTime issueTime) {
-        this.customer = customer;
-        this.foodItems = foodItems;
-        this.issueTime = issueTime;
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public FoodBill(String foodName, double price, int orderQuantity, double totalPrice) {
+        this.foodName = foodName;
+        this.price = price;
+        this.orderQuantity = orderQuantity;
+        this.totalPrice = totalPrice;
     }
 
     public FoodBill() {
-    }
-
-    public int calculateTotalQuantity(int quantity) {
-        int totalQuantity = 0;
-        return totalQuantity += quantity;
-    }
-
-    // Calculate total price of all food items
-    public double calculateTotalPrice(int quantity) {
-        double totalPrice = 0.0;
-        for (FoodItem item : foodItems) {
-            // Assuming that each FoodItem has a method getPrice to return the price of the item
-            totalPrice += item.calculatePrice(quantity);
-        }
-        return totalPrice;
     }
 
 }
