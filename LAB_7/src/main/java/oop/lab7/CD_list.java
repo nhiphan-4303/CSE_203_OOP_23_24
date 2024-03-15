@@ -201,4 +201,44 @@ public class CD_list {
         cdList.sort(com);
     }
 
+    /////////////////////
+    public ArrayList<CD> searchByTitle(String title) {
+        ArrayList<CD> results = new ArrayList<>();
+        for (CD cd : cdList) {
+            if (cd.getTitle().equalsIgnoreCase(title)) {
+                results.add(cd);
+            }
+        }
+        return results;
+    }
+
+    public ArrayList<CD> searchByCollection(String collection) {
+        ArrayList<CD> results = new ArrayList<>();
+        for (CD cd : cdList) {
+            if (cd.getCollection().equalsIgnoreCase(collection)) {
+                results.add(cd);
+            }
+        }
+        return results;
+    }
+
+    public ArrayList<CD> seachByType(String type) {
+        ArrayList<CD> results = new ArrayList<>();
+        for (CD cd : cdList) {
+            if (cd.getType().equalsIgnoreCase(type)) {
+                results.add(cd);
+            }
+        }
+        return results;
+    }
+
+    public ArrayList<CD> searchByPrice(double price) {
+        ArrayList<CD> results = new ArrayList<>();
+        for (CD cd : cdList) {
+            if (cd.getPrice() <= price) {
+                results.add(cd);
+            }
+        }
+        return results;
+    }
 }

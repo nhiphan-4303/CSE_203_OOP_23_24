@@ -80,9 +80,25 @@ public class CD_Store extends javax.swing.JFrame {
 
         sortCmb.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         sortCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Title", "Collection", "Type", "Price", " " }));
+        sortCmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortCmbActionPerformed(evt);
+            }
+        });
+
+        searchTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTxtActionPerformed(evt);
+            }
+        });
 
         searchBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         searchBtn.setText("Search");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
@@ -195,7 +211,8 @@ public class CD_Store extends javax.swing.JFrame {
                         .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -277,6 +294,60 @@ public class CD_Store extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_restoreBtnActionPerformed
 
+    private void searchTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchTxtActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        // Retrieve the selected search type from the combo box
+        String selectedSearchType = sortCmb.getSelectedItem().toString();
+
+        // Retrieve the search term from the search text field
+        String searchTerm = searchTxt.getText();
+
+        // Define the ArrayList to hold the search results
+        ArrayList<CD> searchResults = new ArrayList<>();
+
+        // Use a switch statement to perform the appropriate search
+        switch (selectedSearchType) {
+            case "Title" ->
+                searchResults = cdList.searchByTitle(searchTerm);
+            case "Collection" ->
+                searchResults = cdList.searchByCollection(searchTerm);
+            case "Type" ->
+                searchResults = cdList.seachByType(searchTerm);
+            case "Price" -> {
+                try {
+                    double price = Double.parseDouble(searchTerm);
+                    searchResults = cdList.searchByPrice(price);
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(this, "Please enter a valid price.");
+                    return;
+                }
+            }
+            default -> {
+                JOptionPane.showMessageDialog(this, "Please select a valid search type.");
+                return;
+            }
+        }
+
+        // Update the table with the search results
+        updateCdTable(searchResults);
+    }//GEN-LAST:event_searchBtnActionPerformed
+
+    private void sortCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortCmbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sortCmbActionPerformed
+    private void updateCdTable(ArrayList<CD> cds) {
+        DefaultTableModel model = (DefaultTableModel) cdTable.getModel();
+        model.setRowCount(0); // Clear the table
+
+        // Loop through the ArrayList and add rows to the table
+        for (CD cd : cds) {
+            model.addRow(new Object[]{cd.getTitle(), cd.getCollection(), cd.getType(), cd.getPrice()});
+        }
+    }
+
     private void fillInCdTable() {
         DefaultTableModel model = (DefaultTableModel) cdTable.getModel();
         int rowCount = model.getRowCount();
@@ -316,37 +387,6 @@ public class CD_Store extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CD_Store.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CD_Store.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CD_Store.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CD_Store.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CD_Store().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backUpBtn;
