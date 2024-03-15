@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
@@ -34,7 +33,6 @@ import model.ManageFoodBill;
 public class BillFrame extends javax.swing.JDialog {
 
     private boolean isFormInitialized = false;
-    private boolean customerDetailsAdded = false;
 
     /**
      * Creates new form BillFrame
