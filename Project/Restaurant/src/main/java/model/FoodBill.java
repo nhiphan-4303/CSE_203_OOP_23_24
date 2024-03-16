@@ -8,10 +8,11 @@ package model;
  *
  * @author hanie
  */
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class FoodBill {
+public class FoodBill implements Serializable{
 
     private String foodName;
     private double price;

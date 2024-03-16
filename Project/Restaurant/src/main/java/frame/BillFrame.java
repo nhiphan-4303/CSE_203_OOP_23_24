@@ -535,7 +535,7 @@ public class BillFrame extends javax.swing.JDialog {
 
     private void saveCustomers() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Customers.Dat"))) {
-            oos.writeObject(manageMainBill.getMainBills());
+            oos.writeObject(manageCustomer.getListCustomer());
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Error saving customers to file.");
         }
@@ -543,8 +543,7 @@ public class BillFrame extends javax.swing.JDialog {
 
     private void loadCustomers() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Customers.Dat"))) {
-            manageMainBill.setMainBills((ArrayList<MainBill>) ois.readObject());
-
+            manageCustomer.setListCustomer((ArrayList<Customer>) ois.readObject());
         } catch (IOException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(this, "Error loading customers from file.");
         }
@@ -552,7 +551,7 @@ public class BillFrame extends javax.swing.JDialog {
 
     public void saveBills() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Bills.dat"))) {
-            oos.writeObject(manageFoodBill.getBills()); // Save only the ArrayList<CD>
+            oos.writeObject(manageMainBill.getMainBills());
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Error saving bill to file: " + e.getMessage());
         }
@@ -560,7 +559,7 @@ public class BillFrame extends javax.swing.JDialog {
 
     public void loadBills() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Bills.dat"))) {
-            manageFoodBill.setBills((ArrayList<FoodBill>) ois.readObject());
+            manageMainBill.setMainBills((ArrayList<MainBill>) ois.readObject());
         } catch (IOException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(this, "Error loading Bills from file.");
         }
@@ -668,13 +667,6 @@ public class BillFrame extends javax.swing.JDialog {
                 DefaultTableModel model = (DefaultTableModel) billTable.getModel();
                 model.addRow(new Object[]{foodName, foodPrice, foodQuantity, totalPrice});
 
-                // Cập nhật tổng giá
-//                double totalPrice = calculateTotalPrice();
-//                totalPriceTextField.setText(String.valueOf(totalPrice));
-//
-//                // Cập nhật số lượng tổng cộng
-//                int totalQuantity = calculateTotalQuantity();
-//                totalQuantityTextField.setText(String.valueOf(totalQuantity));
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "Please enter quantity as a valid integer.");
             }
@@ -711,34 +703,23 @@ public class BillFrame extends javax.swing.JDialog {
     public void fillInBill() {
         try {
             DecimalFormat df = new DecimalFormat("#,##0.00");
-            float grandTotal = 0;
-            String billText = "";
-
-            // Header
             LocalDateTime dateTime = LocalDateTime.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            billText += "Time: " + formatter.format(dateTime) + "\n";
-            billText += "Customer ID: " + idComboBox.getSelectedItem().toString() + "\n";
-            billText += "Customer Name: " + customersNameTextField.getText() + "\n";
-            billText += "Food Name\t\tQuantity\t\tPrice\t\tTotal Price\n";
-            billText += "--------------------------------------------------\n";
+            String customerId = idComboBox.getSelectedItem().toString();
+            String customerName = customersNameTextField.getText();
+            ArrayList<FoodBill> items = manageFoodBill.getBills(); // Assuming manageFoodBill.getBills() returns an ArrayList<FoodBill>
+            float grandTotal = 0;
 
-            // Items
-            for (FoodBill fb : manageFoodBill.getBills()) {
-                grandTotal += fb.getTotalPrice();
-                billText += fb.getFoodName() + "\t\t"
-                        + fb.getOrderQuantity() + "\t\t"
-                        + df.format(fb.getPrice()) + "\t\t"
-                        + df.format(fb.getTotalPrice()) + "\n";
+            for (FoodBill item : items) {
+                grandTotal += item.getTotalPrice();
             }
 
-            // Footer
-            billText += "\nGrand Total: " + df.format(grandTotal);
+            MainBill mainBill = new MainBill(dateTime, customerId, customerName, items, grandTotal);
 
-            // Set the bill text to the text area
+            String billText = mainBill.generateBillText(df);
             billTxtArea.setText(billText);
-            MainBill mB = new MainBill(billText);
-            manageMainBill.getMainBills().add(mB);
+
+            manageMainBill.getMainBills().add(mainBill);
+
             saveBills();
 
         } catch (NullPointerException e) {
@@ -746,7 +727,6 @@ public class BillFrame extends javax.swing.JDialog {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "An unexpected error occurred: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-
     }
 
     private void clearBill() {
@@ -754,7 +734,7 @@ public class BillFrame extends javax.swing.JDialog {
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String header = "\t\t" + dateFormat.format(date) + "\n"
-                + "===============NA RESTAURANT=================\n"
+                + "===============ANNA RESTAURANT=================\n"
                 + "Food Name\tQuantity\tPrice\tTotal Price\n"
                 + "--------------------------------------------------\n";
 
@@ -785,7 +765,6 @@ public class BillFrame extends javax.swing.JDialog {
         } else {
             customersNameTextField.setText("");
         }
-
     }
 
     public void setIdComboBox() {
