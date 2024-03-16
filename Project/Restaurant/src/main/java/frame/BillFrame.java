@@ -34,30 +34,29 @@ import model.ManageMainBill;
  */
 public class BillFrame extends javax.swing.JDialog {
 
-    private boolean isFormInitialized = false;
-
     /**
      * Creates new form BillFrame
      */
-    FoodManager foodManager = new FoodManager();
-    ManageCustomer manageCustomer = new ManageCustomer();
-    ManageFoodBill manageFoodBill = new ManageFoodBill();
-    FoodBill foodBill = new FoodBill();
-    MainBill mainBill = new MainBill();
-    ManageMainBill manageMainBill = new ManageMainBill();
+    private FoodManager foodManager = new FoodManager();
+    private ManageCustomer manageCustomer = new ManageCustomer();
+    private ManageFoodBill manageFoodBill = new ManageFoodBill();
+    private FoodBill foodBill = new FoodBill();
+    private MainBill mainBill = new MainBill();
+    private ManageMainBill manageMainBill = new ManageMainBill();
 
     public BillFrame(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
-
+        loadBills();
         loadFoods();
         fillInFoodTable();
 
         loadCustomers();
         setIdComboBox();
-        isFormInitialized = true;
+
+        clearBill();
 
     }
 
@@ -103,9 +102,14 @@ public class BillFrame extends javax.swing.JDialog {
         removeButton = new javax.swing.JButton();
         amountLabel = new javax.swing.JLabel();
         resetBillBtn = new javax.swing.JButton();
+        foodListLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setAutoscrolls(true);
 
         customersPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -156,7 +160,7 @@ public class BillFrame extends javax.swing.JDialog {
                 .addComponent(customersNameLabel)
                 .addGap(89, 89, 89))
             .addGroup(customersPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(39, 39, 39)
                 .addComponent(idComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(customersNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,16 +176,16 @@ public class BillFrame extends javax.swing.JDialog {
                 .addGap(10, 10, 10)
                 .addComponent(customersContentLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(customersPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(customersPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(customersPanel1Layout.createSequentialGroup()
                         .addComponent(customersIDLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(idComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(customersPanel1Layout.createSequentialGroup()
                         .addComponent(customersNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(customersPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(customersNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(idComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(customersNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(95, 95, 95))))
         );
 
@@ -252,24 +256,25 @@ public class BillFrame extends javax.swing.JDialog {
                 .addGroup(productsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(productsPanelLayout.createSequentialGroup()
                         .addComponent(foodNameLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(foodContentLabel)
-                        .addGap(140, 140, 140))
+                        .addGap(140, 314, Short.MAX_VALUE))
                     .addGroup(productsPanelLayout.createSequentialGroup()
                         .addComponent(foodNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(productsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(productsPanelLayout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addComponent(foodPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(70, 70, 70)
-                                .addComponent(foodQuantityLabel)
+                                .addGroup(productsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(foodContentLabel)
+                                    .addGroup(productsPanelLayout.createSequentialGroup()
+                                        .addComponent(foodPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(70, 70, 70)
+                                        .addComponent(foodQuantityLabel)))
                                 .addGap(43, 43, 43))
                             .addGroup(productsPanelLayout.createSequentialGroup()
                                 .addGap(33, 33, 33)
                                 .addComponent(foodPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(foodQuantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(26, Short.MAX_VALUE))))))
+                                .addGap(18, 18, 18))))))
         );
         productsPanelLayout.setVerticalGroup(
             productsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,9 +292,8 @@ public class BillFrame extends javax.swing.JDialog {
                     .addComponent(resetButton))
                 .addGap(9, 9, 9))
             .addGroup(productsPanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(foodContentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(7, 7, 7)
                 .addGroup(productsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(foodPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(foodQuantityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -334,19 +338,19 @@ public class BillFrame extends javax.swing.JDialog {
             foodListPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(foodListPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(foodListPanel1Layout.createSequentialGroup()
-                .addGap(109, 109, 109)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, foodListPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(foodListLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(121, 121, 121))
         );
         foodListPanel1Layout.setVerticalGroup(
             foodListPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(foodListPanel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addContainerGap()
                 .addComponent(foodListLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(61, Short.MAX_VALUE))
         );
@@ -442,8 +446,8 @@ public class BillFrame extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, productBillPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(productsBillLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(proBillTable, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(proBillTable, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(productBillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(printButton)
@@ -463,6 +467,10 @@ public class BillFrame extends javax.swing.JDialog {
             }
         });
 
+        foodListLabel2.setFont(new java.awt.Font("Showcard Gothic", 1, 20)); // NOI18N
+        foodListLabel2.setForeground(new java.awt.Color(51, 0, 51));
+        foodListLabel2.setText("export biLL");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -472,20 +480,27 @@ public class BillFrame extends javax.swing.JDialog {
                 .addComponent(resetBillBtn)
                 .addGap(76, 76, 76))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(productBillPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(productBillPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(foodListLabel2)))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addComponent(productBillPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(foodListLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(resetBillBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -533,88 +548,6 @@ public class BillFrame extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void saveCustomers() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Customers.Dat"))) {
-            oos.writeObject(manageCustomer.getListCustomer());
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error saving customers to file.");
-        }
-    }
-
-    private void loadCustomers() {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Customers.Dat"))) {
-            manageCustomer.setListCustomer((ArrayList<Customer>) ois.readObject());
-        } catch (IOException | ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(this, "Error loading customers from file.");
-        }
-    }
-
-    public void saveBills() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Bills.dat"))) {
-            oos.writeObject(manageMainBill.getMainBills());
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error saving bill to file: " + e.getMessage());
-        }
-    }
-
-    public void loadBills() {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Bills.dat"))) {
-            manageMainBill.setMainBills((ArrayList<MainBill>) ois.readObject());
-        } catch (IOException | ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(this, "Error loading Bills from file.");
-        }
-    }
-
-    public void saveFoods() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Foods.dat"))) {
-            oos.writeObject(foodManager.getFoodList()); // Save only the ArrayList<CD>
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error saving Foods to file: " + e.getMessage());
-        }
-    }
-
-    public void loadFoods() {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Foods.dat"))) {
-            foodManager.setFoodList((ArrayList<FoodItem>) ois.readObject());
-        } catch (IOException | ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(this, "Error loading Foods from file.");
-        }
-    }
-
-    private void fillInFoodTable() {
-        DefaultTableModel model = (DefaultTableModel) foodTable.getModel();
-        int rowCount = model.getRowCount();
-        // Remove rows one by one from the end of the table
-        for (int i = rowCount - 1; i >= 0; i--) {
-            model.removeRow(i);
-        }
-        // Add rows from the student list to the table model
-        for (FoodItem fi : foodManager.getFoodList()) {
-            Object[] row = new Object[]{
-                fi.getFoodId(),
-                fi.getFoodName(),
-                fi.getFoodType(),
-                fi.getPrice()
-            };
-            model.addRow(row);
-        }
-        pack();
-    }
-
-    private void getDataFromTable() {
-        int selectedRow = foodTable.getSelectedRow();
-        if (selectedRow != -1) {
-            FoodItem fi = foodManager.getFoodList().get(selectedRow);
-
-            foodNameTextField.setText(fi.getFoodName());
-            foodPriceTextField.setText(String.valueOf(fi.getPrice()));
-
-            foodNameTextField.setEditable(false);
-            foodPriceTextField.setEditable(false);
-        }
-    }
-
-
     private void customersNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customersNameTextFieldActionPerformed
         showNameBill();
     }//GEN-LAST:event_customersNameTextFieldActionPerformed
@@ -628,9 +561,6 @@ public class BillFrame extends javax.swing.JDialog {
     }//GEN-LAST:event_idComboBoxMouseClicked
 
     private void idComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idComboBoxActionPerformed
-        if (!isFormInitialized) {
-            return;
-        }
         showNameBill();
     }//GEN-LAST:event_idComboBoxActionPerformed
 
@@ -641,32 +571,9 @@ public class BillFrame extends javax.swing.JDialog {
     private void addBillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBillButtonActionPerformed
         int selectedRow = foodTable.getSelectedRow();
         if (selectedRow != -1) {
-            FoodItem fi = foodManager.getFoodList().get(selectedRow);
-            String foodName = fi.getFoodName();
-            double foodPrice = fi.getPrice();
-            int foodQuantity;
-            double totalPrice;
-
             try {
-                foodQuantity = Integer.parseInt(foodQuantityTextField.getText());
-                if (foodQuantity <= 0 || foodQuantity > fi.getQuantity()) {
-                    JOptionPane.showMessageDialog(this, "Not enough quantity to supply. Quantity currently available: " + fi.getQuantity());
-                    return;
-                }
-
-                totalPrice = foodPrice * foodQuantity;
-
-                FoodBill fooBi = new FoodBill(foodName, foodPrice, foodQuantity, totalPrice);
-                manageFoodBill.getBills().add(fooBi);
-
-                // Trừ số lượng và cập nhật vào FoodManager
-                fi.setQuantity(fi.getQuantity() - foodQuantity);
-                saveFoods();
-
-                // Thêm vào bảng hóa đơn
-                DefaultTableModel model = (DefaultTableModel) billTable.getModel();
-                model.addRow(new Object[]{foodName, foodPrice, foodQuantity, totalPrice});
-
+                int foodQuantity = Integer.parseInt(foodQuantityTextField.getText());
+                fillInBillTable(selectedRow, foodQuantity);
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "Please enter quantity as a valid integer.");
             }
@@ -700,62 +607,80 @@ public class BillFrame extends javax.swing.JDialog {
     private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
         fillInBill();
     }//GEN-LAST:event_printButtonActionPerformed
-    public void fillInBill() {
-        try {
-            DecimalFormat df = new DecimalFormat("#,##0.00");
-            LocalDateTime dateTime = LocalDateTime.now();
-            String customerId = idComboBox.getSelectedItem().toString();
-            String customerName = customersNameTextField.getText();
-            ArrayList<FoodBill> items = manageFoodBill.getBills(); // Assuming manageFoodBill.getBills() returns an ArrayList<FoodBill>
-            float grandTotal = 0;
 
-            for (FoodBill item : items) {
-                grandTotal += item.getTotalPrice();
-            }
-
-            MainBill mainBill = new MainBill(dateTime, customerId, customerName, items, grandTotal);
-
-            String billText = mainBill.generateBillText(df);
-            billTxtArea.setText(billText);
-
-            manageMainBill.getMainBills().add(mainBill);
-
-            saveBills();
-
-        } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(this, "An error occurred due to null data: " + e.getMessage(), "Data Error", JOptionPane.ERROR_MESSAGE);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "An unexpected error occurred: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    private void clearBill() {
-        // Get current date to print at the top of the bill
-        Date date = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String header = "\t\t" + dateFormat.format(date) + "\n"
-                + "===============ANNA RESTAURANT=================\n"
-                + "Food Name\tQuantity\tPrice\tTotal Price\n"
-                + "--------------------------------------------------\n";
-
-        // Reset the bill text area with the header
-        billTxtArea.setText(header);
-
-        // Clear any other fields if necessary
-        // (e.g., reset total price field, customer details, etc.)
-        customersNameTextField.setText("");
-        idComboBox.setSelectedIndex(-1); // Reset selection or set to default if applicable
-        // If you have other components that need to be reset, add them here...
-
-        // Also clear the current bill items
-        manageFoodBill.getBills().clear();
-        // And clear the bill table in the GUI
-        DefaultTableModel model = (DefaultTableModel) billTable.getModel();
-        model.setRowCount(0);
-    }
     private void resetBillBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBillBtnActionPerformed
         clearBill();
     }//GEN-LAST:event_resetBillBtnActionPerformed
+    private void saveCustomers() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Customers.Dat"))) {
+            oos.writeObject(manageCustomer.getListCustomer());
+            //JOptionPane.showMessageDialog(this, "Customers saved successfully!");
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error saving customers to file.");
+        }
+    }
+
+    private void loadCustomers() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Customers.Dat"))) {
+            manageCustomer.setListCustomer((ArrayList<Customer>) ois.readObject());
+        } catch (IOException | ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(this, "Error loading customers from file.");
+        }
+    }
+
+    public void saveBills() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Bills.dat"))) {
+            oos.writeObject(manageMainBill.getListMainBills());
+            JOptionPane.showMessageDialog(this, "Bills saved successfully!");
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error saving bill to file: " + e.getMessage());
+        }
+    }
+
+    public void loadBills() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Bills.dat"))) {
+            manageMainBill.setListMainBills((ArrayList<MainBill>) ois.readObject());
+        } catch (IOException | ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(this, "Error loading Bills from file.");
+        }
+    }
+
+    public void saveFoods() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Foods.dat"))) {
+            oos.writeObject(foodManager.getFoodList()); // Save only the ArrayList<CD>
+            //JOptionPane.showMessageDialog(this, "Foods saved successfully!");
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error saving Foods to file: " + e.getMessage());
+        }
+    }
+
+    public void loadFoods() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Foods.dat"))) {
+            foodManager.setFoodList((ArrayList<FoodItem>) ois.readObject());
+        } catch (IOException | ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(this, "Error loading Foods from file.");
+        }
+    }
+
+    private void fillInFoodTable() {
+        DefaultTableModel model = (DefaultTableModel) foodTable.getModel();
+        int rowCount = model.getRowCount();
+        // Remove rows one by one from the end of the table
+        for (int i = rowCount - 1; i >= 0; i--) {
+            model.removeRow(i);
+        }
+        // Add rows from the student list to the table model
+        for (FoodItem fi : foodManager.getFoodList()) {
+            Object[] row = new Object[]{
+                fi.getFoodId(),
+                fi.getFoodName(),
+                fi.getFoodType(),
+                fi.getPrice()
+            };
+            model.addRow(row);
+        }
+        pack();
+    }
 
     public void showNameBill() {
         String id = String.valueOf(idComboBox.getSelectedItem());
@@ -772,6 +697,92 @@ public class BillFrame extends javax.swing.JDialog {
         for (Customer cus : manageCustomer.getListCustomer()) {
             idComboBox.addItem(String.valueOf(cus.getCustomerID()));
         }
+    }
+
+    private void getDataFromTable() {
+        int selectedRow = foodTable.getSelectedRow();
+        if (selectedRow != -1) {
+            FoodItem fi = foodManager.getFoodList().get(selectedRow);
+
+            foodNameTextField.setText(fi.getFoodName());
+            foodPriceTextField.setText(String.valueOf(fi.getPrice()));
+
+            foodNameTextField.setEditable(false);
+            foodPriceTextField.setEditable(false);
+        }
+    }
+
+    private void fillInBillTable(int selectedRow, int foodQuantity) {
+        FoodItem fi = foodManager.getFoodList().get(selectedRow);
+        String foodName = fi.getFoodName();
+        double foodPrice = fi.getPrice();
+        double totalPrice;
+
+        if (foodQuantity <= 0 || foodQuantity > fi.getQuantity()) {
+            JOptionPane.showMessageDialog(this, "Not enough quantity to supply. Quantity currently available: " + fi.getQuantity());
+            return;
+        }
+
+        totalPrice = foodPrice * foodQuantity;
+
+        FoodBill fooBi = new FoodBill(foodName, foodPrice, foodQuantity, totalPrice);
+        manageFoodBill.getBills().add(fooBi);
+
+        // Trừ số lượng và cập nhật vào FoodManager
+        fi.setQuantity(fi.getQuantity() - foodQuantity);
+        saveFoods();
+
+        // Thêm vào bảng hóa đơn
+        DefaultTableModel model = (DefaultTableModel) billTable.getModel();
+        model.addRow(new Object[]{foodName, foodPrice, foodQuantity, totalPrice});
+    }
+
+    public void fillInBill() {
+        try {
+            DecimalFormat df = new DecimalFormat("#,##0.00");
+            LocalDateTime dateTime = LocalDateTime.now();
+            String customerId = idComboBox.getSelectedItem().toString();
+            String customerName = customersNameTextField.getText();
+            ArrayList<FoodBill> items = manageFoodBill.getBills();
+            float grandTotal = 0;
+
+            for (FoodBill item : items) {
+                grandTotal += item.getTotalPrice();
+            }
+
+            MainBill mBill = new MainBill(dateTime, customerId, customerName, items, grandTotal);
+
+            String billText = mBill.generateBillText(df);
+            billTxtArea.setText(billText);
+
+            manageMainBill.getListMainBills().add(mBill);
+
+            saveBills();
+
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(this, "An error occurred due to null data: " + e.getMessage(), "Data Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "An unexpected error occurred: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void clearBill() {
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String header = "\t" + dateFormat.format(date) + "\n"
+                + "===============ANNA RESTAURANT=================\n"
+                + "Food Name\tQuantity\tPrice\tTotal Price\n"
+                + "--------------------------------------------------\n";
+
+        billTxtArea.setText(header);
+
+        customersNameTextField.setText("");
+        idComboBox.setSelectedIndex(-1);
+
+        manageFoodBill.getBills().clear();
+
+        DefaultTableModel model = (DefaultTableModel) billTable.getModel();
+        model.setRowCount(0);
     }
 
     /**
@@ -828,6 +839,7 @@ public class BillFrame extends javax.swing.JDialog {
     private javax.swing.JPanel customersPanel1;
     private javax.swing.JLabel foodContentLabel;
     private javax.swing.JLabel foodListLabel1;
+    private javax.swing.JLabel foodListLabel2;
     private javax.swing.JPanel foodListPanel1;
     private javax.swing.JLabel foodNameLabel;
     private javax.swing.JTextField foodNameTextField;

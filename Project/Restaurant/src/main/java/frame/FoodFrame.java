@@ -64,6 +64,7 @@ public class FoodFrame extends javax.swing.JDialog {
     public void saveFoods() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Foods.dat"))) {
             oos.writeObject(foodManager.getFoodList());
+            //JOptionPane.showMessageDialog(this, "Foods saved successfully!");
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Error saving Foods to file: " + e.getMessage());
         }

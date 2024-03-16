@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -15,14 +16,31 @@ public class ManageMainBill {
     public ManageMainBill() {
     }
 
-    ArrayList<MainBill> mainBills = new ArrayList<>();
+    ArrayList<MainBill> listMainBills = new ArrayList<>();
+    private ArrayList<LocalDateTime> allDates = new ArrayList<>();
 
-    public ArrayList<MainBill> getMainBills() {
-        return mainBills;
+    public ArrayList<MainBill> getListMainBills() {
+        return listMainBills;
     }
 
-    public void setMainBills(ArrayList<MainBill> mainBills) {
-        this.mainBills = mainBills;
+    public void setListMainBills(ArrayList<MainBill> listMainBills) {
+        this.listMainBills = listMainBills;
+    }
+
+    public MainBill findMainBillByDate(LocalDateTime date) {
+        for (MainBill m : listMainBills) {
+            if (m.getDateTime().equals(date)) {
+                return m;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<LocalDateTime> getAllDates() {
+        for (MainBill m : listMainBills) {
+            allDates.add(m.getDateTime());
+        }
+        return allDates;
     }
 
 }

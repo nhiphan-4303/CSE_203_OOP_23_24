@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package model;
+package frame;
 
 import java.awt.event.*;
 import java.beans.Statement;
@@ -11,6 +11,8 @@ import static java.lang.Character.isDigit;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.table.*;
+import model.Customer;
+import model.ManageCustomer;
 
 /**
  *
@@ -479,6 +481,7 @@ public class CustomerFrame extends javax.swing.JDialog {
     private void saveCustomers() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Customers.Dat"))) {
             oos.writeObject(manageCustomer.getListCustomer());
+            //JOptionPane.showMessageDialog(this, "Customers saved successfully!");
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Error saving customers to file.");
         }

@@ -89,18 +89,19 @@ public class MainBill implements Serializable {
         sb.append("Time: ").append(formatter.format(dateTime)).append("\n");
         sb.append("Customer ID: ").append(customerId).append("\n");
         sb.append("Customer Name: ").append(customerName).append("\n");
-        sb.append("Food Name\t\tQuantity\t\tPrice\t\tTotal Price\n");
+        sb.append("\nFood Name\tQuantity\tPrice\tTotal Price\n");
         sb.append("--------------------------------------------------\n");
 
         // Items
         for (FoodBill fb : items) {
-            sb.append(fb.getFoodName()).append("\t\t")
-                    .append(fb.getOrderQuantity()).append("\t\t")
-                    .append(df.format(fb.getPrice())).append("\t\t")
+            sb.append(fb.getFoodName()).append("\t")
+                    .append(fb.getOrderQuantity()).append("\t")
+                    .append(df.format(fb.getPrice())).append("\t")
                     .append(df.format(fb.getTotalPrice())).append("\n");
         }
 
         // Footer
+        sb.append("--------------------------------------------------\n");
         sb.append("\nGrand Total: ").append(df.format(grandTotal));
 
         return sb.toString();
