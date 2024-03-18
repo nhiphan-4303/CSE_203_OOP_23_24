@@ -70,25 +70,19 @@ public class CustomerFrame extends javax.swing.JDialog {
         setBackground(new java.awt.Color(0, 0, 0));
         getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
 
-        jPanel5.setBackground(new java.awt.Color(118, 167, 136));
+        jPanel5.setBackground(new java.awt.Color(187, 234, 221));
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
-        backButton.setFont(new java.awt.Font("Gurmukhi MN", 1, 18)); // NOI18N
-        backButton.setForeground(new java.awt.Color(0, 153, 102));
+        backButton.setBackground(new java.awt.Color(0, 153, 153));
+        backButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 14;
-        gridBagConstraints.ipady = -8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(23, 9, 0, 0);
-        jPanel5.add(backButton, gridBagConstraints);
+        jPanel5.add(backButton, new java.awt.GridBagConstraints());
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -159,6 +153,7 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 25, 0, 0);
         jPanel5.add(jPanel4, gridBagConstraints);
 
+        customerIDField.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
         customerIDField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Customer ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Gurmukhi MN", 1, 18))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -169,6 +164,7 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 18, 0, 0);
         jPanel5.add(customerIDField, gridBagConstraints);
 
+        fullNameField.setFont(new java.awt.Font("Bernard MT Condensed", 1, 12)); // NOI18N
         fullNameField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Full name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Gurmukhi MN", 1, 18))); // NOI18N
         fullNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,6 +180,7 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(15, 18, 0, 0);
         jPanel5.add(fullNameField, gridBagConstraints);
 
+        phoneNumberField.setFont(new java.awt.Font("Bernard MT Condensed", 1, 12)); // NOI18N
         phoneNumberField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Phone number", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Gurmukhi MN", 1, 18))); // NOI18N
         phoneNumberField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,6 +197,7 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(18, 18, 0, 0);
         jPanel5.add(phoneNumberField, gridBagConstraints);
 
+        addressField.setFont(new java.awt.Font("Bernard MT Condensed", 1, 12)); // NOI18N
         addressField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Address", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Gurmukhi MN", 1, 18))); // NOI18N
         addressField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,6 +213,7 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(18, 18, 0, 0);
         jPanel5.add(addressField, gridBagConstraints);
 
+        emailField.setFont(new java.awt.Font("Bernard MT Condensed", 1, 12)); // NOI18N
         emailField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Gurmukhi MN", 1, 18))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -225,7 +224,9 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(18, 18, 0, 0);
         jPanel5.add(emailField, gridBagConstraints);
 
-        addButton.setFont(new java.awt.Font("Gurmukhi MN", 1, 18)); // NOI18N
+        addButton.setBackground(new java.awt.Color(0, 153, 153));
+        addButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        addButton.setForeground(new java.awt.Color(255, 255, 255));
         addButton.setText("Add");
         addButton.setBorder(null);
         addButton.addActionListener(new java.awt.event.ActionListener() {
@@ -241,7 +242,9 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(56, 18, 0, 0);
         jPanel5.add(addButton, gridBagConstraints);
 
-        clearButton.setFont(new java.awt.Font("Gurmukhi MN", 1, 18)); // NOI18N
+        clearButton.setBackground(new java.awt.Color(0, 153, 153));
+        clearButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        clearButton.setForeground(new java.awt.Color(255, 255, 255));
         clearButton.setText("Clear");
         clearButton.setBorder(null);
         clearButton.addActionListener(new java.awt.event.ActionListener() {
@@ -257,7 +260,9 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(56, 31, 0, 0);
         jPanel5.add(clearButton, gridBagConstraints);
 
-        saveButton.setFont(new java.awt.Font("Gurmukhi MN", 1, 18)); // NOI18N
+        saveButton.setBackground(new java.awt.Color(0, 153, 153));
+        saveButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        saveButton.setForeground(new java.awt.Color(255, 255, 255));
         saveButton.setText("Save");
         saveButton.setBorder(null);
         saveButton.addActionListener(new java.awt.event.ActionListener() {

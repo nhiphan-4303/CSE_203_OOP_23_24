@@ -39,5 +39,5 @@
         <maven.compiler.target>21</maven.compiler.target>
         <exec.mainClass>oop.lab.restaurant.Restaurant</exec.mainClass>
     </properties>
-    <name>AAAAAAARestaurant</name>
+    <name>Anna_Restaurant</name>
 </project>

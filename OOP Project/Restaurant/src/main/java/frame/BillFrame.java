@@ -106,24 +106,26 @@ public class BillFrame extends javax.swing.JDialog {
         foodListLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Bill Frame");
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(189, 237, 222));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setAutoscrolls(true);
 
-        customersPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        customersPanel1.setBackground(new java.awt.Color(189, 239, 226));
+        customersPanel1.setForeground(new java.awt.Color(190, 242, 229));
 
-        customersContentLabel1.setFont(new java.awt.Font("Showcard Gothic", 1, 22)); // NOI18N
-        customersContentLabel1.setForeground(new java.awt.Color(51, 0, 51));
+        customersContentLabel1.setFont(new java.awt.Font("Bernard MT Condensed", 1, 22)); // NOI18N
+        customersContentLabel1.setForeground(new java.awt.Color(140, 140, 226));
         customersContentLabel1.setText("Customers");
 
-        customersIDLabel.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        customersIDLabel.setForeground(new java.awt.Color(0, 0, 204));
+        customersIDLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        customersIDLabel.setForeground(new java.awt.Color(139, 139, 227));
         customersIDLabel.setText("ID");
 
-        customersNameLabel.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        customersNameLabel.setForeground(new java.awt.Color(0, 0, 204));
+        customersNameLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        customersNameLabel.setForeground(new java.awt.Color(140, 140, 226));
         customersNameLabel.setText("Name");
 
         customersNameTextField.setEditable(false);
@@ -190,14 +192,14 @@ public class BillFrame extends javax.swing.JDialog {
                         .addGap(95, 95, 95))))
         );
 
-        productsPanel.setBackground(new java.awt.Color(255, 255, 255));
+        productsPanel.setBackground(new java.awt.Color(189, 237, 224));
 
-        foodContentLabel.setFont(new java.awt.Font("Showcard Gothic", 1, 20)); // NOI18N
-        foodContentLabel.setForeground(new java.awt.Color(51, 0, 51));
+        foodContentLabel.setFont(new java.awt.Font("Bernard MT Condensed", 1, 22)); // NOI18N
+        foodContentLabel.setForeground(new java.awt.Color(139, 139, 224));
         foodContentLabel.setText("Food");
 
-        foodNameLabel.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        foodNameLabel.setForeground(new java.awt.Color(0, 0, 204));
+        foodNameLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        foodNameLabel.setForeground(new java.awt.Color(139, 139, 224));
         foodNameLabel.setText("Name");
 
         foodNameTextField.setEditable(false);
@@ -207,8 +209,8 @@ public class BillFrame extends javax.swing.JDialog {
             }
         });
 
-        foodPriceLabel.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        foodPriceLabel.setForeground(new java.awt.Color(0, 0, 204));
+        foodPriceLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        foodPriceLabel.setForeground(new java.awt.Color(139, 139, 224));
         foodPriceLabel.setText("Price");
 
         foodPriceTextField.setEditable(false);
@@ -218,8 +220,8 @@ public class BillFrame extends javax.swing.JDialog {
             }
         });
 
-        foodQuantityLabel.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        foodQuantityLabel.setForeground(new java.awt.Color(0, 0, 204));
+        foodQuantityLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        foodQuantityLabel.setForeground(new java.awt.Color(139, 139, 224));
         foodQuantityLabel.setText("Quantity");
 
         foodQuantityTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -228,7 +230,7 @@ public class BillFrame extends javax.swing.JDialog {
             }
         });
 
-        addBillButton.setBackground(new java.awt.Color(255, 0, 0));
+        addBillButton.setBackground(new java.awt.Color(0, 153, 153));
         addBillButton.setFont(new java.awt.Font("VNI-Avo", 1, 14)); // NOI18N
         addBillButton.setForeground(new java.awt.Color(255, 255, 255));
         addBillButton.setText("Add to bill");
@@ -238,7 +240,7 @@ public class BillFrame extends javax.swing.JDialog {
             }
         });
 
-        resetButton.setBackground(new java.awt.Color(255, 0, 0));
+        resetButton.setBackground(new java.awt.Color(0, 153, 153));
         resetButton.setFont(new java.awt.Font("VNI-Avo", 1, 14)); // NOI18N
         resetButton.setForeground(new java.awt.Color(255, 255, 255));
         resetButton.setText("Reset");
@@ -268,6 +270,12 @@ public class BillFrame extends javax.swing.JDialog {
                         .addComponent(foodNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(productsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(productsPanelLayout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(foodPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(foodQuantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(productsPanelLayout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addGroup(productsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(foodContentLabel)
@@ -275,13 +283,7 @@ public class BillFrame extends javax.swing.JDialog {
                                         .addComponent(foodPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(70, 70, 70)
                                         .addComponent(foodQuantityLabel)))
-                                .addGap(43, 43, 43))
-                            .addGroup(productsPanelLayout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(foodPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(foodQuantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18))))))
+                                .addGap(43, 43, 43))))))
         );
         productsPanelLayout.setVerticalGroup(
             productsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,11 +309,12 @@ public class BillFrame extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        foodListPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        foodListPanel1.setBackground(new java.awt.Color(187, 234, 221));
+        foodListPanel1.setForeground(new java.awt.Color(0, 204, 153));
 
-        foodListLabel1.setFont(new java.awt.Font("Showcard Gothic", 1, 20)); // NOI18N
-        foodListLabel1.setForeground(new java.awt.Color(51, 0, 51));
-        foodListLabel1.setText("food  List");
+        foodListLabel1.setFont(new java.awt.Font("Bernard MT Condensed", 1, 22)); // NOI18N
+        foodListLabel1.setForeground(new java.awt.Color(139, 139, 221));
+        foodListLabel1.setText("Menu");
 
         foodTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -347,10 +350,10 @@ public class BillFrame extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, foodListPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(foodListLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(121, 121, 121))
+            .addGroup(foodListPanel1Layout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(foodListLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         foodListPanel1Layout.setVerticalGroup(
             foodListPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,18 +365,18 @@ public class BillFrame extends javax.swing.JDialog {
                 .addContainerGap(61, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(187, 234, 221));
 
         billTxtArea.setBackground(new java.awt.Color(232, 228, 228));
         billTxtArea.setColumns(20);
         billTxtArea.setRows(5);
         jScrollPane2.setViewportView(billTxtArea);
 
-        productBillPanel.setBackground(new java.awt.Color(255, 255, 255));
+        productBillPanel.setBackground(new java.awt.Color(187, 234, 221));
 
-        productsBillLabel.setFont(new java.awt.Font("Showcard Gothic", 1, 20)); // NOI18N
-        productsBillLabel.setForeground(new java.awt.Color(51, 0, 51));
-        productsBillLabel.setText("Product Bill");
+        productsBillLabel.setFont(new java.awt.Font("Bernard MT Condensed", 1, 22)); // NOI18N
+        productsBillLabel.setForeground(new java.awt.Color(139, 139, 221));
+        productsBillLabel.setText("Product  Bill");
 
         billTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -401,7 +404,7 @@ public class BillFrame extends javax.swing.JDialog {
         billTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         proBillTable.setViewportView(billTable);
 
-        printButton.setBackground(new java.awt.Color(255, 0, 0));
+        printButton.setBackground(new java.awt.Color(0, 153, 153));
         printButton.setFont(new java.awt.Font("VNI-Avo", 1, 14)); // NOI18N
         printButton.setForeground(new java.awt.Color(255, 255, 255));
         printButton.setText("Print");
@@ -411,7 +414,7 @@ public class BillFrame extends javax.swing.JDialog {
             }
         });
 
-        removeButton.setBackground(new java.awt.Color(255, 0, 0));
+        removeButton.setBackground(new java.awt.Color(0, 153, 153));
         removeButton.setFont(new java.awt.Font("VNI-Avo", 1, 14)); // NOI18N
         removeButton.setForeground(new java.awt.Color(255, 255, 255));
         removeButton.setText("Remove");
@@ -428,16 +431,13 @@ public class BillFrame extends javax.swing.JDialog {
         productBillPanel.setLayout(productBillPanelLayout);
         productBillPanelLayout.setHorizontalGroup(
             productBillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, productBillPanelLayout.createSequentialGroup()
+            .addGroup(productBillPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(productBillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(productBillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, productBillPanelLayout.createSequentialGroup()
                             .addComponent(amountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(34, 34, 34))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, productBillPanelLayout.createSequentialGroup()
-                            .addComponent(productsBillLabel)
-                            .addGap(125, 125, 125))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, productBillPanelLayout.createSequentialGroup()
                             .addComponent(proBillTable, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(22, 22, 22)))
@@ -447,25 +447,29 @@ public class BillFrame extends javax.swing.JDialog {
                         .addGap(55, 55, 55)
                         .addComponent(removeButton)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(productBillPanelLayout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(productsBillLabel)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         productBillPanelLayout.setVerticalGroup(
             productBillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, productBillPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(productsBillLabel)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(proBillTable, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(productBillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(printButton)
-                    .addComponent(removeButton))
+                .addComponent(proBillTable, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(productBillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(removeButton)
+                    .addComponent(printButton))
                 .addGap(28, 28, 28)
                 .addComponent(amountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        resetBillBtn.setBackground(new java.awt.Color(255, 204, 204));
-        resetBillBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        resetBillBtn.setBackground(new java.awt.Color(0, 153, 153));
+        resetBillBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         resetBillBtn.setForeground(new java.awt.Color(255, 255, 255));
         resetBillBtn.setText("Reset");
         resetBillBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -474,9 +478,9 @@ public class BillFrame extends javax.swing.JDialog {
             }
         });
 
-        foodListLabel2.setFont(new java.awt.Font("Showcard Gothic", 1, 20)); // NOI18N
-        foodListLabel2.setForeground(new java.awt.Color(51, 0, 51));
-        foodListLabel2.setText("export biLL");
+        foodListLabel2.setFont(new java.awt.Font("Bernard MT Condensed", 1, 22)); // NOI18N
+        foodListLabel2.setForeground(new java.awt.Color(138, 138, 219));
+        foodListLabel2.setText("Export  Bill");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -496,7 +500,7 @@ public class BillFrame extends javax.swing.JDialog {
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(productBillPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
+                        .addGap(143, 143, 143)
                         .addComponent(foodListLabel2)))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
@@ -506,11 +510,11 @@ public class BillFrame extends javax.swing.JDialog {
                 .addComponent(productBillPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(foodListLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(resetBillBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resetBillBtn)
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
