@@ -47,14 +47,12 @@ public class CustomerFrame extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel5 = new javax.swing.JPanel();
         backButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         customerTable = new javax.swing.JTable();
-        searchField = new javax.swing.JTextField();
         customerIDField = new javax.swing.JTextField();
         fullNameField = new javax.swing.JTextField();
         phoneNumberField = new javax.swing.JTextField();
@@ -64,14 +62,19 @@ public class CustomerFrame extends javax.swing.JDialog {
         clearButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
         totalButton = new javax.swing.JButton();
+        phoneNumJLabel = new javax.swing.JLabel();
+        emailJLabel = new javax.swing.JLabel();
+        cusNameJLabel = new javax.swing.JLabel();
+        addressJLabel = new javax.swing.JLabel();
+        cusIdJLabel = new javax.swing.JLabel();
+        searchField = new javax.swing.JTextField();
+        changeJLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Customer Information");
         setBackground(new java.awt.Color(0, 0, 0));
-        getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
 
         jPanel5.setBackground(new java.awt.Color(187, 234, 221));
-        jPanel5.setLayout(new java.awt.GridBagLayout());
 
         backButton.setBackground(new java.awt.Color(0, 153, 153));
         backButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -82,7 +85,6 @@ public class CustomerFrame extends javax.swing.JDialog {
                 backButtonActionPerformed(evt);
             }
         });
-        jPanel5.add(backButton, new java.awt.GridBagConstraints());
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -107,8 +109,110 @@ public class CustomerFrame extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(customerTable);
 
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        customerIDField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(139, 139, 221), 3, true));
+
+        fullNameField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(139, 139, 221), 3, true));
+        fullNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fullNameFieldActionPerformed(evt);
+            }
+        });
+
+        phoneNumberField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(139, 139, 221), 3, true));
+        phoneNumberField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phoneNumberFieldActionPerformed(evt);
+            }
+        });
+
+        addressField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(139, 139, 221), 3, true));
+        addressField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addressFieldActionPerformed(evt);
+            }
+        });
+
+        emailField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(139, 139, 221), 3, true));
+
+        addButton.setBackground(new java.awt.Color(0, 153, 153));
+        addButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        addButton.setForeground(new java.awt.Color(255, 255, 255));
+        addButton.setText("Add");
+        addButton.setBorder(null);
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
+
+        clearButton.setBackground(new java.awt.Color(0, 153, 153));
+        clearButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        clearButton.setForeground(new java.awt.Color(255, 255, 255));
+        clearButton.setText("Clear");
+        clearButton.setBorder(null);
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
+
+        saveButton.setBackground(new java.awt.Color(0, 153, 153));
+        saveButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        saveButton.setForeground(new java.awt.Color(255, 255, 255));
+        saveButton.setText("Save");
+        saveButton.setBorder(null);
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
+
+        totalButton.setBackground(new java.awt.Color(0, 153, 153));
+        totalButton.setFont(new java.awt.Font("Gurmukhi MN", 1, 18)); // NOI18N
+        totalButton.setForeground(new java.awt.Color(255, 255, 255));
+        totalButton.setText("Total");
+        totalButton.setBorder(null);
+        totalButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalButtonActionPerformed(evt);
+            }
+        });
+
+        phoneNumJLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        phoneNumJLabel.setForeground(new java.awt.Color(139, 139, 221));
+        phoneNumJLabel.setText("Phone Number");
+
+        emailJLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        emailJLabel.setForeground(new java.awt.Color(139, 139, 221));
+        emailJLabel.setText("Email");
+
+        cusNameJLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        cusNameJLabel.setForeground(new java.awt.Color(139, 139, 221));
+        cusNameJLabel.setText("Full Name");
+
+        addressJLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        addressJLabel.setForeground(new java.awt.Color(139, 139, 221));
+        addressJLabel.setText("Address");
+
+        cusIdJLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        cusIdJLabel.setForeground(new java.awt.Color(139, 139, 221));
+        cusIdJLabel.setText("Customer ID");
+
         searchField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        searchField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Gurmukhi MN", 1, 18))); // NOI18N
+        searchField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(139, 139, 221), 3, true));
         searchField.setCaretColor(new java.awt.Color(255, 255, 255));
         searchField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,180 +225,112 @@ public class CustomerFrame extends javax.swing.JDialog {
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
-                    .addComponent(searchField))
-                .addContainerGap(30, Short.MAX_VALUE))
+        changeJLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        changeJLabel.setForeground(new java.awt.Color(139, 139, 221));
+        changeJLabel.setText("Search");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(changeJLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cusNameJLabel)
+                                    .addComponent(addressJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(emailJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(phoneNumJLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(customerIDField, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                                    .addComponent(fullNameField)
+                                    .addComponent(phoneNumberField)
+                                    .addComponent(addressField)
+                                    .addComponent(emailField)))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(cusIdJLabel)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(totalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(backButton)
+                .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(backButton)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(customerIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(cusIdJLabel)
+                                .addGap(33, 33, 33)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cusNameJLabel)
+                                    .addComponent(fullNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(phoneNumJLabel)
+                            .addComponent(phoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addressJLabel)
+                            .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(emailJLabel)
+                            .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(totalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(changeJLabel)
+                            .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 7;
-        gridBagConstraints.ipadx = 24;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 25, 0, 0);
-        jPanel5.add(jPanel4, gridBagConstraints);
-
-        customerIDField.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
-        customerIDField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Customer ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Gurmukhi MN", 1, 18))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 311;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 18, 0, 0);
-        jPanel5.add(customerIDField, gridBagConstraints);
-
-        fullNameField.setFont(new java.awt.Font("Bernard MT Condensed", 1, 12)); // NOI18N
-        fullNameField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Full name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Gurmukhi MN", 1, 18))); // NOI18N
-        fullNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fullNameFieldActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 311;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(15, 18, 0, 0);
-        jPanel5.add(fullNameField, gridBagConstraints);
-
-        phoneNumberField.setFont(new java.awt.Font("Bernard MT Condensed", 1, 12)); // NOI18N
-        phoneNumberField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Phone number", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Gurmukhi MN", 1, 18))); // NOI18N
-        phoneNumberField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                phoneNumberFieldActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 311;
-        gridBagConstraints.ipady = -1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 18, 0, 0);
-        jPanel5.add(phoneNumberField, gridBagConstraints);
-
-        addressField.setFont(new java.awt.Font("Bernard MT Condensed", 1, 12)); // NOI18N
-        addressField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Address", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Gurmukhi MN", 1, 18))); // NOI18N
-        addressField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addressFieldActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 311;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 18, 0, 0);
-        jPanel5.add(addressField, gridBagConstraints);
-
-        emailField.setFont(new java.awt.Font("Bernard MT Condensed", 1, 12)); // NOI18N
-        emailField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Gurmukhi MN", 1, 18))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 311;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 18, 0, 0);
-        jPanel5.add(emailField, gridBagConstraints);
-
-        addButton.setBackground(new java.awt.Color(0, 153, 153));
-        addButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        addButton.setForeground(new java.awt.Color(255, 255, 255));
-        addButton.setText("Add");
-        addButton.setBorder(null);
-        addButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.ipadx = 41;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(56, 18, 0, 0);
-        jPanel5.add(addButton, gridBagConstraints);
-
-        clearButton.setBackground(new java.awt.Color(0, 153, 153));
-        clearButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        clearButton.setForeground(new java.awt.Color(255, 255, 255));
-        clearButton.setText("Clear");
-        clearButton.setBorder(null);
-        clearButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.ipadx = 31;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(56, 31, 0, 0);
-        jPanel5.add(clearButton, gridBagConstraints);
-
-        saveButton.setBackground(new java.awt.Color(0, 153, 153));
-        saveButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        saveButton.setForeground(new java.awt.Color(255, 255, 255));
-        saveButton.setText("Save");
-        saveButton.setBorder(null);
-        saveButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.ipadx = 29;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(56, 18, 0, 0);
-        jPanel5.add(saveButton, gridBagConstraints);
-
-        totalButton.setFont(new java.awt.Font("Gurmukhi MN", 1, 18)); // NOI18N
-        totalButton.setText("Total");
-        totalButton.setBorder(null);
-        totalButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                totalButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.ipadx = 23;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(56, 24, 0, 0);
-        jPanel5.add(totalButton, gridBagConstraints);
-
-        getContentPane().add(jPanel5);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -312,10 +348,6 @@ public class CustomerFrame extends javax.swing.JDialog {
     private void totalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalButtonActionPerformed
         JOptionPane.showMessageDialog(this, "There are " + manageCustomer.getListCustomer().size() + " customers.");
     }//GEN-LAST:event_totalButtonActionPerformed
-
-    private void customerTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerTableMouseClicked
-        getDataFromTable();
-    }//GEN-LAST:event_customerTableMouseClicked
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         String customerID = customerIDField.getText();
@@ -355,30 +387,9 @@ public class CustomerFrame extends javax.swing.JDialog {
         fillInCustomerTable();
     }//GEN-LAST:event_addButtonActionPerformed
 
-    private void searchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyReleased
-        DefaultTableModel model = (DefaultTableModel) customerTable.getModel();
-        String searchText = searchField.getText().trim();
-        ArrayList<Customer> searchResults = doSearch(searchText);
-        model.setRowCount(0);
-
-        for (Customer c : searchResults) {
-            Object[] rows = {c.getCustomerID(), c.getCustomerName(), c.getPhoneNumber(), c.getAddress(), c.getEmail()};
-            model.addRow(rows);
-        }
-
-    }//GEN-LAST:event_searchFieldKeyReleased
-
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_backButtonActionPerformed
-
-    private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchFieldActionPerformed
-
-    private void customerTableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerTableKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_customerTableKeyReleased
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         DefaultTableModel model = (DefaultTableModel) customerTable.getModel();
@@ -424,6 +435,30 @@ public class CustomerFrame extends javax.swing.JDialog {
     private void addressFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addressFieldActionPerformed
+
+    private void searchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyReleased
+        DefaultTableModel model = (DefaultTableModel) customerTable.getModel();
+        String searchText = searchField.getText().trim();
+        ArrayList<Customer> searchResults = doSearch(searchText);
+        model.setRowCount(0);
+
+        for (Customer c : searchResults) {
+            Object[] rows = {c.getCustomerID(), c.getCustomerName(), c.getPhoneNumber(), c.getAddress(), c.getEmail()};
+            model.addRow(rows);
+        }
+    }//GEN-LAST:event_searchFieldKeyReleased
+
+    private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchFieldActionPerformed
+
+    private void customerTableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerTableKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_customerTableKeyReleased
+
+    private void customerTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerTableMouseClicked
+        getDataFromTable();
+    }//GEN-LAST:event_customerTableMouseClicked
 
     private void DeleteCustomer() {
         DefaultTableModel model = (DefaultTableModel) customerTable.getModel();
@@ -566,15 +601,21 @@ public class CustomerFrame extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JTextField addressField;
+    private javax.swing.JLabel addressJLabel;
     private javax.swing.JButton backButton;
+    private javax.swing.JLabel changeJLabel;
     private javax.swing.JButton clearButton;
+    private javax.swing.JLabel cusIdJLabel;
+    private javax.swing.JLabel cusNameJLabel;
     private javax.swing.JTextField customerIDField;
     private javax.swing.JTable customerTable;
     private javax.swing.JTextField emailField;
+    private javax.swing.JLabel emailJLabel;
     private javax.swing.JTextField fullNameField;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel phoneNumJLabel;
     private javax.swing.JTextField phoneNumberField;
     private javax.swing.JButton saveButton;
     private javax.swing.JTextField searchField;

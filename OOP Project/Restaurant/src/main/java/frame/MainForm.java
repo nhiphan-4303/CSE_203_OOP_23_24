@@ -50,7 +50,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/menu.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(-130, -400, 690, 990);
+        jLabel3.setBounds(-100, -400, 700, 990);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;

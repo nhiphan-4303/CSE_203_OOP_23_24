@@ -36,7 +36,6 @@ public class RevenueFrame extends javax.swing.JDialog {
 
         loadBills();
         setDateComboBox();
-        updateTable();
     }
 
     /**
@@ -57,6 +56,8 @@ public class RevenueFrame extends javax.swing.JDialog {
         startDateLabel = new javax.swing.JLabel();
         totalField = new javax.swing.JTextField();
         totalLabel = new javax.swing.JLabel();
+        backButton = new javax.swing.JButton();
+        searchBT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(183, 229, 215));
@@ -65,7 +66,7 @@ public class RevenueFrame extends javax.swing.JDialog {
 
         revenueTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null}
             },
             new String [] {
                 "Date", "Customer Name", "Food Quantity", "Bill"
@@ -73,6 +74,7 @@ public class RevenueFrame extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(revenueTable);
 
+        endDateComboBox.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(139, 139, 221), 3, true));
         endDateComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 endDateComboBoxActionPerformed(evt);
@@ -84,6 +86,7 @@ public class RevenueFrame extends javax.swing.JDialog {
         endDateLabel.setForeground(new java.awt.Color(138, 138, 219));
         endDateLabel.setText("End Date");
 
+        startDateComboBox.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(139, 139, 221), 3, true));
         startDateComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startDateComboBoxActionPerformed(evt);
@@ -94,75 +97,99 @@ public class RevenueFrame extends javax.swing.JDialog {
         startDateLabel.setForeground(new java.awt.Color(138, 138, 219));
         startDateLabel.setText("Start Date");
 
+        totalField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(139, 139, 221), 3, true));
+
         totalLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         totalLabel.setForeground(new java.awt.Color(138, 138, 219));
         totalLabel.setText("Total");
+
+        backButton.setBackground(new java.awt.Color(0, 153, 153));
+        backButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
+        searchBT.setBackground(new java.awt.Color(0, 153, 153));
+        searchBT.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        searchBT.setForeground(new java.awt.Color(255, 255, 255));
+        searchBT.setText("Search");
+        searchBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBTActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(backButton)
+                .addContainerGap(696, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(totalLabel)
-                                .addGap(54, 54, 54)
-                                .addComponent(totalField, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(totalLabel)
+                        .addGap(37, 37, 37)
+                        .addComponent(totalField, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(82, 82, 82))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(startDateLabel)
-                                        .addGap(434, 434, 434)
+                                        .addGap(342, 342, 342)
                                         .addComponent(endDateLabel))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(startDateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(endDateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(44, 44, 44))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                                        .addComponent(endDateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(37, 37, 37)
+                                        .addComponent(searchBT)))))
+                        .addGap(33, 33, 33))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(endDateLabel)
                     .addComponent(startDateLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(endDateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(startDateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(searchBT, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(startDateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(totalField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(totalField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(totalLabel))
-                .addGap(29, 29, 29))
+                .addGap(69, 69, 69))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -176,6 +203,15 @@ public class RevenueFrame extends javax.swing.JDialog {
 
     }//GEN-LAST:event_endDateComboBoxActionPerformed
 
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void searchBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTActionPerformed
+        // TODO add your handling code here:
+        updateTable();
+    }//GEN-LAST:event_searchBTActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -186,45 +222,40 @@ public class RevenueFrame extends javax.swing.JDialog {
         setTable(start, end);
     }
 
-    private void setTable(LocalDateTime start, LocalDateTime end) {
+    public void setTable(LocalDateTime start, LocalDateTime end) {
         DefaultTableModel model = (DefaultTableModel) revenueTable.getModel();
         model.setRowCount(0);
 
         float totalRevenue = 0;
 
-        ArrayList<LocalDateTime> datesInRange = new ArrayList<>();
+        for (MainBill bill : manageMainBill.getListMainBills()) {
+            LocalDateTime billDate = bill.getDateTime();
+            if (!billDate.isBefore(start) && !billDate.isAfter(end)) {
+                String customerName = bill.getCustomerName();
+                float grandTotal = bill.getGrandTotal();
+                int quantity = 0;
+                for (FoodBill f : bill.getItems()) {
+                    quantity += f.getOrderQuantity();
+                }
 
-        for (LocalDateTime date : manageMainBill.getAllDates()) {
-            if (!date.isBefore(start) && !date.isAfter(end)) {
-                datesInRange.add(date);
-            }
-        }
+                totalRevenue += grandTotal;
 
-        for (LocalDateTime date : datesInRange) {
+                Object[] rows = new Object[]{billDate.toLocalDate(), customerName, quantity, grandTotal};
+                model.addRow(rows);
+            } else if (billDate.toLocalDate().isEqual(LocalDate.now())) {
+                String customerName = bill.getCustomerName();
 
-            for (MainBill bill : manageMainBill.getListMainBills()) {
-                if (bill.getDateTime().toLocalDate().isEqual(date.toLocalDate())) {
-                    String customerName = bill.getCustomerName();
-
-                    float grandTotal = bill.getGrandTotal();
-                    int quantity = 0;
-                    for (FoodBill f : bill.getItems()) {
-                        quantity += f.getOrderQuantity();
-                    }
-
-                    totalRevenue += grandTotal;
-
-                    Object[] rows = new Object[]{date.toLocalDate(), customerName, quantity, grandTotal};
-                    model.addRow(rows);
-
+                float grandTotal = bill.getGrandTotal();
+                int quantity = 0;
+                for (FoodBill f : bill.getItems()) {
+                    quantity += f.getOrderQuantity();
                 }
             }
+
+            totalField.setText(String.format("%.2f", totalRevenue));
+
+            pack();
         }
-
-        totalField.setText(String.format("%.2f", totalRevenue));
-
-        pack();
-
     }
 
     public void setDateComboBox() {
@@ -295,11 +326,13 @@ public class RevenueFrame extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JComboBox<String> endDateComboBox;
     private javax.swing.JLabel endDateLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable revenueTable;
+    private javax.swing.JButton searchBT;
     private javax.swing.JComboBox<String> startDateComboBox;
     private javax.swing.JLabel startDateLabel;
     private javax.swing.JTextField totalField;
