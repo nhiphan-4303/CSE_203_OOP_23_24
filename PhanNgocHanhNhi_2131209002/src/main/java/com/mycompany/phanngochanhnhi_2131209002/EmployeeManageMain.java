@@ -16,9 +16,13 @@ public class EmployeeManageMain {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String args[]) {
+        EmployeeManageMain employeeList = new EmployeeManageMain();
         System.out.println("Enter the number of Employee: ");
         int numberOfEmployee = sc.nextInt();
-        
+        employeeList.inputList(numberOfEmployee);
+        System.out.println("The total tax income of all Employee: ");
+        System.out.println(employeeList.taxOfAll(numberOfEmployee));
+
     }
 
     private ArrayList<Employee> employeeList = new ArrayList<>();
@@ -32,10 +36,6 @@ public class EmployeeManageMain {
 
     public void setEmployeeList(ArrayList<Employee> employeeList) {
         this.employeeList = employeeList;
-    }
-
-    public void inputList() {
-
     }
 
     public double taxOfAll(int numberOfEmployee) {

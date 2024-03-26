@@ -82,9 +82,6 @@ public class Person {
         phoneNumber = sc.nextLine();
         System.out.println("Enter the email: ");
         email = sc.nextLine();
-        sc.nextLine();
     }
-    
-    
 
 }

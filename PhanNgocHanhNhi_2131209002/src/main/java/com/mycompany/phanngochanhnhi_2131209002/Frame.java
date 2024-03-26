@@ -197,7 +197,7 @@ public class Frame extends javax.swing.JFrame {
         }
         try {
             int age = Integer.parseInt(ageTxt.getText());
-            double monthlyIncome = Double.parseDouble(monthlyIncomeTxt.getText());
+            long monthlyIncome = Long.parseLong(monthlyIncomeTxt.getText());
 
             String name = nameTxt.getText();
             String address = addressTxt.getText();
@@ -216,7 +216,7 @@ public class Frame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_calculateBtnActionPerformed
 
-    private String buildTxtArea(String name, int age, double monthlyIncome, int numberOfDependent, double incomeTax) {
+    private String buildTxtArea(String name, int age, long monthlyIncome, int numberOfDependent, double incomeTax) {
         return "Name: " + name + "\n"
                 + "Age: " + age + "\n"
                 + "Monthly Income: " + monthlyIncome + "\n"

@@ -12,15 +12,15 @@ import java.util.Scanner;
  */
 public class Employee extends Person {
 
-    private double monthlyIncome;
+    private long monthlyIncome;
     private int numberOfDependents;
 
-    public Employee(double monthlyIncome, int numberOfDependents) {
+    public Employee(long monthlyIncome, int numberOfDependents) {
         this.monthlyIncome = monthlyIncome;
         this.numberOfDependents = numberOfDependents;
     }
 
-    public Employee(double monthlyIncome, int numberOfDependents, String name, int age, String address, String phoneNumber, String email) {
+    public Employee(long monthlyIncome, int numberOfDependents, String name, int age, String address, String phoneNumber, String email) {
         super(name, age, address, phoneNumber, email);
         this.monthlyIncome = monthlyIncome;
         this.numberOfDependents = numberOfDependents;
@@ -33,7 +33,7 @@ public class Employee extends Person {
         return monthlyIncome;
     }
 
-    public void setMonthlyIncome(double monthlyIncome) {
+    public void setMonthlyIncome(long monthlyIncome) {
         this.monthlyIncome = monthlyIncome;
     }
 
@@ -49,9 +49,10 @@ public class Employee extends Person {
     public void input() {
         super.input();
         System.out.println("Enter the monthly income: ");
-        monthlyIncome = sc.nextFloat();
+        monthlyIncome = sc.nextLong();
         System.out.println("Enter the number of dependents: ");
         numberOfDependents = sc.nextInt();
+        sc.nextLine();
     }
 
     public double calculateIncomeTax() {
