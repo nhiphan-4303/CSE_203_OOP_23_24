@@ -31,6 +31,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         foodButton = new javax.swing.JButton();
         customerButton = new javax.swing.JButton();
@@ -49,9 +50,13 @@ public class MainForm extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(181, 226, 212));
         jPanel2.setLayout(null);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\Restaurant\\src\\main\\java\\image\\menu.jpg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\TMAnh_PNHNhi_Project_Restaurant_Management_System\\src\\main\\java\\image\\menu.jpg")); // NOI18N
         jPanel2.add(jLabel4);
         jLabel4.setBounds(0, 0, 520, 560);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/menu.jpg"))); // NOI18N
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(0, 0, 520, 560);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -103,7 +108,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Ink Free", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Anna Restuarnt");
+        jLabel1.setText("Anna Restaurant");
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("____________________________________________________");
@@ -200,6 +205,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton foodButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -5,10 +5,10 @@
 package frame;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
@@ -24,7 +24,6 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
-        this.manageOwner = manageOwner;
 
         loadOwners();
 
@@ -57,6 +56,7 @@ public class Login extends javax.swing.JFrame {
         helloLabel1 = new javax.swing.JLabel();
         helloLabel2 = new javax.swing.JLabel();
         signInIcon = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -162,9 +162,10 @@ public class Login extends javax.swing.JFrame {
         helloLabel2.setForeground(new java.awt.Color(255, 255, 255));
         helloLabel2.setText("and start journey with us !");
         jPanel2.add(helloLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
-
-        signInIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\Restaurant\\src\\main\\java\\image\\food.png")); // NOI18N
         jPanel2.add(signInIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 148, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\TMAnh_PNHNhi_Project_Restaurant_Management_System\\src\\main\\java\\image\\food.png")); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 150, 150));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -274,6 +275,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel helloLabel;
     private javax.swing.JLabel helloLabel1;
     private javax.swing.JLabel helloLabel2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;

@@ -184,7 +184,12 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\hanie\OneDrive\Desktop\Ky-thuat-phan-mem\CSE_203_OOP_23_24\Restaurant\src\main\java\image\backicon.png"/>
+                  <Image iconType="2" name="C:\Users\hanie\OneDrive\Desktop\Ky-thuat-phan-mem\CSE_203_OOP_23_24\TMAnh_PNHNhi_Project_Restaurant_Management_System\src\main\java\image\backicon.png"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                    <BevelBorder/>
+                  </Border>
                 </Property>
               </Properties>
               <Events>
@@ -321,7 +326,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\hanie\OneDrive\Desktop\Ky-thuat-phan-mem\CSE_203_OOP_23_24\Restaurant\src\main\java\image\addbutton.png"/>
+                  <Image iconType="2" name="C:\Users\hanie\OneDrive\Desktop\Ky-thuat-phan-mem\CSE_203_OOP_23_24\TMAnh_PNHNhi_Project_Restaurant_Management_System\src\main\java\image\addbutton.png"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
@@ -350,7 +355,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\hanie\OneDrive\Desktop\Ky-thuat-phan-mem\CSE_203_OOP_23_24\Restaurant\src\main\java\image\clear.png"/>
+                  <Image iconType="2" name="C:\Users\hanie\OneDrive\Desktop\Ky-thuat-phan-mem\CSE_203_OOP_23_24\TMAnh_PNHNhi_Project_Restaurant_Management_System\src\main\java\image\clear.png"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
@@ -598,7 +603,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\hanie\OneDrive\Desktop\Ky-thuat-phan-mem\CSE_203_OOP_23_24\Restaurant\src\main\java\image\print.png"/>
+                      <Image iconType="2" name="C:\Users\hanie\OneDrive\Desktop\Ky-thuat-phan-mem\CSE_203_OOP_23_24\TMAnh_PNHNhi_Project_Restaurant_Management_System\src\main\java\image\print.png"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
@@ -627,7 +632,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\hanie\OneDrive\Desktop\Ky-thuat-phan-mem\CSE_203_OOP_23_24\Restaurant\src\main\java\image\3687412.png"/>
+                      <Image iconType="2" name="C:\Users\hanie\OneDrive\Desktop\Ky-thuat-phan-mem\CSE_203_OOP_23_24\TMAnh_PNHNhi_Project_Restaurant_Management_System\src\main\java\image\3687412.png"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
@@ -671,7 +676,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\hanie\OneDrive\Desktop\Ky-thuat-phan-mem\CSE_203_OOP_23_24\Restaurant\src\main\java\image\clear.png"/>
+                      <Image iconType="2" name="C:\Users\hanie\OneDrive\Desktop\Ky-thuat-phan-mem\CSE_203_OOP_23_24\TMAnh_PNHNhi_Project_Restaurant_Management_System\src\main\java\image\clear.png"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">

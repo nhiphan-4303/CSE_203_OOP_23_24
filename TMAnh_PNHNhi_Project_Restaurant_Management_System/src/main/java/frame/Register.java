@@ -84,6 +84,7 @@ public class Register extends javax.swing.JFrame {
         welcomeLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         signinIcon = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sign up");
@@ -190,8 +191,10 @@ public class Register extends javax.swing.JFrame {
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         signinIcon.setForeground(new java.awt.Color(181, 181, 246));
-        signinIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\Restaurant\\src\\main\\java\\image\\icon.png")); // NOI18N
         jPanel2.add(signinIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 195, -1, 138));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\TMAnh_PNHNhi_Project_Restaurant_Management_System\\src\\main\\java\\image\\icon.png")); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 150, 150));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -275,6 +278,7 @@ public class Register extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBT;
     private javax.swing.JLabel createLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

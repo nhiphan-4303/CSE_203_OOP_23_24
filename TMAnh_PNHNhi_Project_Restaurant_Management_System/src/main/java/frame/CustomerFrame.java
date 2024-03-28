@@ -218,7 +218,7 @@ public class CustomerFrame extends javax.swing.JDialog {
         addButton.setBackground(new java.awt.Color(187, 234, 221));
         addButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         addButton.setForeground(new java.awt.Color(255, 255, 255));
-        addButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\Restaurant\\src\\main\\java\\image\\addbutton.png")); // NOI18N
+        addButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\TMAnh_PNHNhi_Project_Restaurant_Management_System\\src\\main\\java\\image\\addbutton.png")); // NOI18N
         addButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,7 +237,7 @@ public class CustomerFrame extends javax.swing.JDialog {
         clearButton.setBackground(new java.awt.Color(187, 234, 221));
         clearButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         clearButton.setForeground(new java.awt.Color(255, 255, 255));
-        clearButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\Restaurant\\src\\main\\java\\image\\clear.png")); // NOI18N
+        clearButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\TMAnh_PNHNhi_Project_Restaurant_Management_System\\src\\main\\java\\image\\clear.png")); // NOI18N
         clearButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,7 +256,7 @@ public class CustomerFrame extends javax.swing.JDialog {
         saveButton.setBackground(new java.awt.Color(187, 234, 221));
         saveButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         saveButton.setForeground(new java.awt.Color(255, 255, 255));
-        saveButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\Restaurant\\src\\main\\java\\image\\saveicon.png")); // NOI18N
+        saveButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\TMAnh_PNHNhi_Project_Restaurant_Management_System\\src\\main\\java\\image\\saveicon.png")); // NOI18N
         saveButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -412,7 +412,8 @@ public class CustomerFrame extends javax.swing.JDialog {
         backButton.setBackground(new java.awt.Color(183, 229, 215));
         backButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         backButton.setForeground(new java.awt.Color(255, 255, 255));
-        backButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\Restaurant\\src\\main\\java\\image\\backicon.png")); // NOI18N
+        backButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\TMAnh_PNHNhi_Project_Restaurant_Management_System\\src\\main\\java\\image\\backicon.png")); // NOI18N
+        backButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);

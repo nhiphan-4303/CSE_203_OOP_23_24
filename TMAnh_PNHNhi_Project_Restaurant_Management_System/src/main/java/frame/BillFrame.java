@@ -12,10 +12,8 @@ import java.io.ObjectOutputStream;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
@@ -163,7 +161,8 @@ public class BillFrame extends javax.swing.JDialog {
         backButton1.setBackground(new java.awt.Color(183, 229, 215));
         backButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         backButton1.setForeground(new java.awt.Color(255, 255, 255));
-        backButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\Restaurant\\src\\main\\java\\image\\backicon.png")); // NOI18N
+        backButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\TMAnh_PNHNhi_Project_Restaurant_Management_System\\src\\main\\java\\image\\backicon.png")); // NOI18N
+        backButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         backButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButton1ActionPerformed(evt);
@@ -220,7 +219,7 @@ public class BillFrame extends javax.swing.JDialog {
         addBillButton.setBackground(new java.awt.Color(187, 234, 221));
         addBillButton.setFont(new java.awt.Font("VNI-Avo", 1, 14)); // NOI18N
         addBillButton.setForeground(new java.awt.Color(255, 255, 255));
-        addBillButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\Restaurant\\src\\main\\java\\image\\addbutton.png")); // NOI18N
+        addBillButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\TMAnh_PNHNhi_Project_Restaurant_Management_System\\src\\main\\java\\image\\addbutton.png")); // NOI18N
         addBillButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addBillButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,7 +231,7 @@ public class BillFrame extends javax.swing.JDialog {
         resetButton.setBackground(new java.awt.Color(187, 234, 221));
         resetButton.setFont(new java.awt.Font("VNI-Avo", 1, 14)); // NOI18N
         resetButton.setForeground(new java.awt.Color(255, 255, 255));
-        resetButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\Restaurant\\src\\main\\java\\image\\clear.png")); // NOI18N
+        resetButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\TMAnh_PNHNhi_Project_Restaurant_Management_System\\src\\main\\java\\image\\clear.png")); // NOI18N
         resetButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         resetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -343,7 +342,7 @@ public class BillFrame extends javax.swing.JDialog {
         printButton.setBackground(new java.awt.Color(187, 234, 221));
         printButton.setFont(new java.awt.Font("VNI-Avo", 1, 14)); // NOI18N
         printButton.setForeground(new java.awt.Color(255, 255, 255));
-        printButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\Restaurant\\src\\main\\java\\image\\print.png")); // NOI18N
+        printButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\TMAnh_PNHNhi_Project_Restaurant_Management_System\\src\\main\\java\\image\\print.png")); // NOI18N
         printButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         printButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -355,7 +354,7 @@ public class BillFrame extends javax.swing.JDialog {
         removeButton.setBackground(new java.awt.Color(187, 234, 221));
         removeButton.setFont(new java.awt.Font("VNI-Avo", 1, 14)); // NOI18N
         removeButton.setForeground(new java.awt.Color(255, 255, 255));
-        removeButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\Restaurant\\src\\main\\java\\image\\3687412.png")); // NOI18N
+        removeButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\TMAnh_PNHNhi_Project_Restaurant_Management_System\\src\\main\\java\\image\\3687412.png")); // NOI18N
         removeButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         removeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -371,7 +370,7 @@ public class BillFrame extends javax.swing.JDialog {
         resetBillBtn.setBackground(new java.awt.Color(187, 234, 221));
         resetBillBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         resetBillBtn.setForeground(new java.awt.Color(255, 255, 255));
-        resetBillBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\Restaurant\\src\\main\\java\\image\\clear.png")); // NOI18N
+        resetBillBtn.setIcon(new javax.swing.ImageIcon("C:\\Users\\hanie\\OneDrive\\Desktop\\Ky-thuat-phan-mem\\CSE_203_OOP_23_24\\TMAnh_PNHNhi_Project_Restaurant_Management_System\\src\\main\\java\\image\\clear.png")); // NOI18N
         resetBillBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         resetBillBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
