@@ -693,6 +693,7 @@ public class BillFrame extends javax.swing.JDialog {
         DefaultTableModel model = (DefaultTableModel) billTable.getModel();
         model.setRowCount(0);
     }
+    
 
     /**
      * @param args the command line arguments

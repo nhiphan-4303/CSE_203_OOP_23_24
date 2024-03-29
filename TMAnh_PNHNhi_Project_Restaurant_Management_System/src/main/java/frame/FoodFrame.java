@@ -604,7 +604,7 @@ public class FoodFrame extends javax.swing.JDialog {
     }// GEN-LAST:event_foodIdJTxtActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addBtnActionPerformed
-        
+
         String foodId = foodIdJTxt.getText();
         String foodName = foodNameJTxt.getText();
         String foodType = foodTypeJTxt.getText();
@@ -641,11 +641,11 @@ public class FoodFrame extends javax.swing.JDialog {
     private void fillInFoodTable() {
         DefaultTableModel model = (DefaultTableModel) foodTable.getModel();
         int rowCount = model.getRowCount();
-       
+
         for (int i = rowCount - 1; i >= 0; i--) {
             model.removeRow(i);
         }
-        
+
         for (FoodItem fi : foodManager.getFoodList()) {
             Object[] row = new Object[]{
                 fi.getFoodId(),
@@ -684,7 +684,6 @@ public class FoodFrame extends javax.swing.JDialog {
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
