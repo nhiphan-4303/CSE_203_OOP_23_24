@@ -128,12 +128,12 @@ public class CustomerFrame extends javax.swing.JDialog {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -141,19 +141,19 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 11;
+        gridBagConstraints.gridheight = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 58, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 38, 0, 0);
         jPanel5.add(jPanel4, gridBagConstraints);
 
         customerIDField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(139, 139, 221), 3, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridx = 11;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridwidth = 8;
         gridBagConstraints.ipadx = 107;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 31, 0, 38);
+        gridBagConstraints.insets = new java.awt.Insets(6, 17, 0, 0);
         jPanel5.add(customerIDField, gridBagConstraints);
 
         fullNameField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(139, 139, 221), 3, true));
@@ -163,13 +163,13 @@ public class CustomerFrame extends javax.swing.JDialog {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridx = 11;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridwidth = 8;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 107;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(37, 31, 0, 38);
+        gridBagConstraints.insets = new java.awt.Insets(37, 17, 0, 0);
         jPanel5.add(fullNameField, gridBagConstraints);
 
         phoneNumberField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(139, 139, 221), 3, true));
@@ -179,13 +179,13 @@ public class CustomerFrame extends javax.swing.JDialog {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridx = 11;
         gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridwidth = 16;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 107;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(41, 31, 0, 38);
+        gridBagConstraints.insets = new java.awt.Insets(41, 18, 0, 33);
         jPanel5.add(phoneNumberField, gridBagConstraints);
 
         addressField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(139, 139, 221), 3, true));
@@ -195,24 +195,24 @@ public class CustomerFrame extends javax.swing.JDialog {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridx = 11;
         gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridwidth = 16;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 107;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(42, 31, 0, 38);
+        gridBagConstraints.insets = new java.awt.Insets(42, 18, 0, 33);
         jPanel5.add(addressField, gridBagConstraints);
 
         emailField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(139, 139, 221), 3, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridx = 11;
         gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridwidth = 16;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 107;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(42, 31, 0, 38);
+        gridBagConstraints.insets = new java.awt.Insets(42, 18, 0, 33);
         jPanel5.add(emailField, gridBagConstraints);
 
         addButton.setBackground(new java.awt.Color(187, 234, 221));
@@ -228,10 +228,9 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridheight = 12;
         gridBagConstraints.ipadx = 27;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(28, 67, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(28, 55, 0, 0);
         jPanel5.add(addButton, gridBagConstraints);
 
         clearButton.setBackground(new java.awt.Color(187, 234, 221));
@@ -245,12 +244,12 @@ public class CustomerFrame extends javax.swing.JDialog {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 16;
+        gridBagConstraints.gridx = 18;
         gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridheight = 12;
+        gridBagConstraints.gridwidth = 9;
         gridBagConstraints.ipadx = 27;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(28, 47, 0, 38);
+        gridBagConstraints.insets = new java.awt.Insets(28, 29, 0, 33);
         jPanel5.add(clearButton, gridBagConstraints);
 
         saveButton.setBackground(new java.awt.Color(187, 234, 221));
@@ -264,12 +263,11 @@ public class CustomerFrame extends javax.swing.JDialog {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridx = 11;
         gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridheight = 12;
         gridBagConstraints.ipadx = 27;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(28, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(28, 4, 0, 0);
         jPanel5.add(saveButton, gridBagConstraints);
 
         totalButton.setBackground(new java.awt.Color(0, 153, 153));
@@ -284,12 +282,12 @@ public class CustomerFrame extends javax.swing.JDialog {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 15;
-        gridBagConstraints.ipady = 6;
+        gridBagConstraints.ipadx = 9;
+        gridBagConstraints.ipady = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 39, 17, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 43, 0, 0);
         jPanel5.add(totalButton, gridBagConstraints);
 
         phoneNumJLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -298,9 +296,9 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(37, 45, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(37, 44, 0, 0);
         jPanel5.add(phoneNumJLabel, gridBagConstraints);
 
         emailJLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -309,9 +307,10 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 37;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(38, 45, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(38, 44, 0, 0);
         jPanel5.add(emailJLabel, gridBagConstraints);
 
         cusNameJLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -320,9 +319,9 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(33, 45, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(33, 44, 0, 0);
         jPanel5.add(cusNameJLabel, gridBagConstraints);
 
         addressJLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -331,9 +330,10 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 15;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(38, 45, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(38, 44, 0, 0);
         jPanel5.add(addressJLabel, gridBagConstraints);
 
         cusIdJLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -342,10 +342,10 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 45, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 44, 0, 0);
         jPanel5.add(cusIdJLabel, gridBagConstraints);
 
         searchField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -363,13 +363,13 @@ public class CustomerFrame extends javax.swing.JDialog {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 186;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipadx = 152;
         gridBagConstraints.ipady = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(15, 18, 17, 0);
+        gridBagConstraints.insets = new java.awt.Insets(22, 38, 24, 0);
         jPanel5.add(searchField, gridBagConstraints);
 
         changeJLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -377,9 +377,9 @@ public class CustomerFrame extends javax.swing.JDialog {
         changeJLabel.setText("Search");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 87, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(19, 34, 0, 0);
         jPanel5.add(changeJLabel, gridBagConstraints);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -393,7 +393,7 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 123, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(16, 81, 0, 0);
         jPanel5.add(jLabel1, gridBagConstraints);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -403,10 +403,10 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(16, 111, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(21, 115, 0, 0);
         jPanel5.add(jLabel2, gridBagConstraints);
 
         backButton.setBackground(new java.awt.Color(183, 229, 215));
@@ -424,14 +424,12 @@ public class CustomerFrame extends javax.swing.JDialog {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 21;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 22, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 14, 0, 0);
         jPanel5.add(backButton, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 32;
-        gridBagConstraints.ipady = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(jPanel5, gridBagConstraints);
 
