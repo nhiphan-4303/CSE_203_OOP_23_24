@@ -1,0 +1,45 @@
+- Nên xài hàm sắp xếp trực tiếp, thì phải xài số nguyên.
+- Nếu là số thực thì trừ nhau ra 1, 0 ,-1
+LAB 3:
+- Hôm nay làm đối tượng là kế thừa
+- Câu 1: Đối tượng bình thường
+	+ Menu thì làm switch case, do - while 
+	+ Xây dựng menu: main
+		
+public class CDStore {
+
+    public static void main(String[] args) {
+
+        int menu;
+        Scanner obj = new Scanner(System.in);
+        do {
+            System.out.printf(" 1. Add CD (ArrayList)\n"
+                    + "2. Search CD by CD title\n"
+                    + "3. Search CDs by collection (game/movie/music)\n"
+                    + "4. Search CDs by type (audio/video)\n"
+                    + "5. Delete CD by CD Id\n"
+                    + "6. Edit CD information by Id\n"
+                    + "7. Display all CDs\n"
+                    + "8. Sort the CD list ascending by year of release\n"
+                    + "9. Exit\nInput: ");
+            
+            menu = obj.nextInt();
+            switch (menu) {
+                case 1:
+                    
+                    break;
+                case 2:
+                    break;
+
+                case 9:
+                    break;
+            }
+        }while(menu != 9);
+    }
+
+}
+
+- Câu 2: kế thừa trừu tượng 
+- Sort ưu tiên tuổi trước, sắp xếp lại theo 2 thuộc tính, trả về -1,0,1
+
+
